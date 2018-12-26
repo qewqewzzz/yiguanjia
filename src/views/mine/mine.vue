@@ -4,25 +4,31 @@
 			<img :src="userInfo.logo"/>
 			<div class="mine-info">
 				<span class="name">{{userInfo.name}}</span>
-				<span class="hello">, hello</span>
+				</br>
+				<span class="vip"><badge class="vipBadge" text="VIP 1"></badge></span>
+				</br>
+				<div>
+					<span class="code">{{ '专属邀请码 1898789' }}</span>
+					<span class="copy">复制</span>
+				</div>
 			</div>
-			<router-link
+			<!-- <router-link
 				class="setting zui-icon zui-icon-setting"
 				:to="{
 					name: 'mySetting'
 				}">
-			</router-link>
+			</router-link> -->
 		</div>
 		<div class="mine-order-wrap">
-			<cell 
+			<!-- <cell
 				class="mine-order-all"
-				:title="orderTag.all.text" 
-				:value="'查看全部'" 
+				:title="orderTag.all.text"
+				:value="'查看全部'"
 				:link="{
 					name: 'orderList',
 					query: {tag:orderTag.all.tag}
 				}">
-			</cell>
+			</cell> -->
 
 			<flexbox :gutter="0">
 				<flexbox-item>
@@ -87,49 +93,58 @@
 				</flexbox-item>
 			</flexbox>
 		</div>
-		
+
 		<group >
-			<cell 
+			<grid cols="3" :show-lr-borders="false">
+		      	<grid-item v-for="(item, index) in otherOperations" :label="item.text" :key="index">
+		        	<img slot="icon" :src="item.icon">
+		      	</grid-item>
+		    </grid>
+		</group>
+		<!-- <group >
+			<cell
 				class="z-cell-item"
-				:title="'我的收藏'" 
+				:title="'我的收藏'"
 				:link="{
 					name: 'myLike'
 				}">
 			</cell>
-			<cell 
+			<cell
 				class="z-cell-item"
-				:title="'我的优惠券'" 
+				:title="'我的优惠券'"
 				:link="{
 					name: 'myCoupon'
 				}">
 			</cell>
-			<cell 
+			<cell
 				class="z-cell-item"
-				:title="'收货地址'" 
+				:title="'收货地址'"
 				:link="{
 					name: 'myAddress'
 				}">
 			</cell>
-			<cell 
+			<cell
 				class="z-cell-item"
-				:title="'我要开馆'" 
+				:title="'我要开馆'"
 				is-link>
 			</cell>
-		</group>
+		</group> -->
 	</div>
 </template>
 <script>
 require('./mine.less')
 import {userInfo} from '../../data/data.js'
 
-import { Badge, Cell, Group, Flexbox, FlexboxItem } from 'vux'
+import { Badge, Cell, Group, Flexbox, FlexboxItem, Grid, GridItem } from 'vux'
 export default {
 	components: {
 		Badge,
 		Group,
 		Cell,
 		FlexboxItem,
-		Flexbox
+		Flexbox,
+		Grid,
+		GridItem
 	},
 	data() {
 		return {
@@ -165,7 +180,32 @@ export default {
 					text: '售后/退款',
 					icon: 'zui-icon zui-icon-KEFU'
 				}
-			}
+			},
+			otherOperations: [{
+				text: '礼券',
+				icon: '/static/img/gifts.png',
+			}, {
+				text: '申请开店',
+				icon: '/static/img/reply.png',
+			}, {
+				text: '分享有礼',
+				icon: '/static/img/share.png',
+			}, {
+				text: '个人信息',
+				icon: '/static/img/userinfo.png',
+			}, {
+				text: '我的收藏',
+				icon: '/static/img/collection.png',
+			}, {
+				text: '收货地址',
+				icon: '/static/img/address.png',
+			}, {
+				text: '关于我们',
+				icon: '/static/img/V.png',
+			}, {
+				text: '客服',
+				icon: '/static/img/call.png',
+			}]
 		}
 	}
 }

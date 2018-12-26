@@ -1,6 +1,6 @@
 <template>
 	<div class="z-page">
-		
+
 		<div class="z-head life-index-head">
 			<div class="logo">
 				<img :src="shop.logo" alt="">
@@ -23,33 +23,33 @@
 
 		<view-box class="z-content">
 			<div class="life-index-banner">
-				<swiper 
+				<swiper
 					:list="shopBanner">
 				</swiper>
 			</div>
-			
-			<cat-box 
-				:cats="shopCat" 
+
+			<cat-box
+				:cats="shopCat"
 				:title="'美的一笔'">
 			</cat-box>
 
-			<sale-floor 
+			<sale-floor
 				:type="'floorA'"
 				:hasAll="true"
 				:floorTitle="'精选好物'"
 				:floorData="floor1">
 			</sale-floor>
 
-			<recommend 
+			<recommend
 				:type="'INDEXGOODRECOMMEND'"
 				:recommendTitle="'优物推荐'"
 				:recommendData="recommendGoods">
 			</recommend>
-			
+
 			<ending-tip :showLoading="false"></ending-tip>
-			
+
 		</view-box>
-		
+
 	</div>
 </template>
 <script>
@@ -75,7 +75,7 @@ export default {
 		EndingTip,
 		Recommend,
 		GoodGrid,
-		Swiper, 
+		Swiper,
 		SwiperItem,
 		ScrollerBox,
 		SharePopup,
