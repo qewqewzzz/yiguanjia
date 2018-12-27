@@ -95,8 +95,8 @@
 		</div>
 
 		<group >
-			<grid cols="3" :show-lr-borders="false">
-		      	<grid-item v-for="(item, index) in otherOperations" :label="item.text" :key="index">
+			<grid :cols="3" :show-lr-borders="false">
+		      	<grid-item v-for="(item, index) in otherOperations" :label="item.text" :key="index" :link="{name: item.link}">
 		        	<img slot="icon" :src="item.icon">
 		      	</grid-item>
 		    </grid>
@@ -184,6 +184,7 @@ export default {
 			otherOperations: [{
 				text: '礼券',
 				icon: '/static/img/gifts.png',
+				link: 'myCoupon',
 			}, {
 				text: '申请开店',
 				icon: '/static/img/reply.png',
@@ -193,12 +194,15 @@ export default {
 			}, {
 				text: '个人信息',
 				icon: '/static/img/userinfo.png',
+				link: 'mySetting',
 			}, {
 				text: '我的收藏',
 				icon: '/static/img/collection.png',
+				link: 'myLike',
 			}, {
 				text: '收货地址',
 				icon: '/static/img/address.png',
+				link: 'myAddress',
 			}, {
 				text: '关于我们',
 				icon: '/static/img/V.png',

@@ -1,5 +1,5 @@
 <template>
-	<div 
+	<div
 		class="good-list-wrap"
 		v-if="type === 'SUBINFO'">
 		<img class="good-list-img" :src="data.img" alt="">
@@ -16,7 +16,7 @@
 		</div>
 	</div>
 
-	<div 
+	<div
 		class="good-list-wrap"
 		v-else-if="type==='SUBINFOS'">
 		<img class="good-list-img" :src="data.img" alt="">
@@ -25,7 +25,7 @@
 				{{data.title}}
 			</div>
 			<div class="subInfo z-ellipsis-2">
-				<span 
+				<span
 					class="param"
 					v-for="item in data.subInfo">
 					{{item}}
@@ -33,7 +33,7 @@
 			</div>
 			<div class="price">
 				￥{{data.price}}
-				<span 
+				<span
 					class="num"
 					v-if="data.num">
 					x{{data.num}}
@@ -80,6 +80,7 @@ export default {
 }
 .good-list-wrap .good-list-info .subInfo .param{
 	padding-right: 4px;
+	visibility: hidden;
 }
 .good-list-wrap .good-list-info .price{
 	font-size: 16px;

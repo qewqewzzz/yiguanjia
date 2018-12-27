@@ -1,15 +1,15 @@
 <template>
 	<div class="shop-card-wrap">
 		<div class="shop-card-head">
-			{{shop.name}}
-			<span 
+			{{'订单号：28789890'||shop.name}}
+			<span
 				class="sc-left-tip"
 				v-if="tip">
 				{{tip}}
 			</span>
 			<span class="sc-right-tip">
 				{{state}}
-				<span 
+				<span
 					class="zui-icon"
 					:class="iconTip"></span>
 			</span>
@@ -47,7 +47,7 @@ export default {
 			}
 		}
 	}
-}	
+}
 </script>
 <style>
 .shop-card-wrap{
@@ -59,7 +59,7 @@ export default {
 .shop-card-head{
 	height: 42px;
 	line-height: 42px;
-	font-size: 15px;
+	font-size: 16px;
 	color: #404040;
 	background-color: #fff;
 	vertical-align: middle;
@@ -69,8 +69,8 @@ export default {
 }
 .shop-card-head .sc-right-tip{
 	float: right;
-	font-size: 14px;
-	color: #ed7a5d;
+	font-size: 16px;
+	color: #EDA849;
 }
 .shop-card-head .sc-right-tip .zui-icon{
 	font-size: 16px;
@@ -103,7 +103,7 @@ export default {
 }
 .shop-card-foot .state-btn{
 	color: #fff;
-	background-color: #ed7a5d;	
+	background-color: #ed7a5d;
 	border: 1px solid #ed7a5d;
 }
 .shop-card-foot .state-plain-btn{

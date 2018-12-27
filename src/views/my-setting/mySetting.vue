@@ -1,42 +1,42 @@
 <template>
 	<div class="mysetting-wrap">
-		<cell 
+		<cell
 			class="z-cell-item"
-			:title="'头像'" 
+			:title="'头像'"
 			is-link>
 			<div class="user-logo" slot="value">
-				<img 
+				<img
 				class=""
 				:src="userInfo.logo">
 			</div>
 		</cell>
-		<cell 
+		<cell
 			class="z-cell-item"
-			:title="'账号'" 
+			:title="'账号'"
 			:value="''"
 			is-link>
 		</cell>
-		<cell 
+		<cell
 			class="z-cell-item"
-			:title="'昵称'" 
+			:title="'昵称'"
 			:value="userInfo.nikeName"
 			is-link>
 		</cell>
-		<cell 
+		<cell
 			class="z-cell-item"
-			:title="'密码'" 
+			:title="'密码'"
 			:value="''"
 			is-link>
 		</cell>
-		<cell 
+		<cell
 			class="z-cell-item"
-			:title="'已绑定手机'" 
+			:title="'已绑定手机'"
 			:value="userInfo.tell"
 			is-link>
 		</cell>
 
 		<group class="z-nofixed-fullbtn">
-			<x-button 
+			<x-button
 				type="warn">
 				退出账号
 			</x-button>
@@ -51,10 +51,10 @@ import { Cell, Group, XButton, Tabbar, TabbarItem } from 'vux'
 
 export default {
 	components: {
-		Cell, 
+		Cell,
 		Group,
-		XButton, 
-		Tabbar, 
+		XButton,
+		Tabbar,
 		TabbarItem
 	},
 	data() {

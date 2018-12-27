@@ -1,18 +1,19 @@
 <template>
 	<view-box>
-		<tab 
+		<tab
 			class="order-list-head"
 			:line-width="2"
 			actice-color="Efc378c"
+			:scroll-threshold="5"
 			v-model="index">
-			<tab-item 
+			<tab-item
 				v-for="item in list"
 				@click.native="tabHandler(item.tag)"
 				:selected="computedTag === item.tag">
 				{{item.text}}
 			</tab-item>
 		</tab>
-		
+
 		<empty-view
 			v-show="!loading"
 			v-if="orderList.length === 0"
@@ -20,9 +21,9 @@
 			:text="'暂无相关订单！'">
 		</empty-view>
 
-		<div 
-			class="order-list-wrap" 
-			v-else 
+		<div
+			class="order-list-wrap"
+			v-else
 			v-show="!loading">
 			<shop-card
 				v-for="order in orderList"
@@ -44,41 +45,41 @@
 					slot="foot"
 					class="shop-card-foot">
 					<div class="z-cell-item z-text-right">
-						<span>共{{2}}件</span>
-						合计￥<strong>{{order.sum}}</strong>
+						<span class="service">共{{2}}件商品</span>
+						实付款: ￥{{order.sum}}<strong></strong>
 					</div>
 					<div class="z-cell-item z-text-right">
-						<span class="service zui-icon zui-icon-KEFU">联系客服</span>
-						<span 
+						<!-- <span class="service zui-icon zui-icon-KEFU">联系客服</span> -->
+						<span
 							v-if="order.state === 'needPay'"
 							class="state-plain-btn">取消订单</span>
 						<pay-way
 							:title="'立即付款'"
 							v-if="order.state === 'needPay'"
-							class="state-btn"
+							class="state-plain-btn"
 							@pay-click="payBtnHandler()">
 						</pay-way>
-						<span 
+						<span
 							v-if="order.state === 'needSend'"
-							class="state-btn">
+							class="state-plain-btn">
 							退款
 						</span>
-						<span 
+						<span
 							v-if="order.state === 'needGet'"
-							class="state-btn">
+							class="state-plain-btn">
 							确认收货
 						</span>
-						<router-link 
+						<router-link
 							:to="{
 								name: 'commentPost',
 							}"
 							v-if="order.state === 'needComment'"
-							class="state-btn">
+							class="state-plain-btn">
 							评价
 						</router-link>
-						<span 
+						<span
 							v-if="order.state === 'needService'"
-							class="state-btn">
+							class="state-plain-btn">
 							退款中
 						</span>
 					</div>
@@ -87,8 +88,8 @@
 
 			<ending-tip :showLoading="true"></ending-tip>
 		</div>
-		
-		
+
+
 	</view-box>
 </template>
 <script>
@@ -105,7 +106,7 @@ import {ViewBox, Tab, TabItem, XButton} from 'vux'
 export default {
 	components: {
 		EmptyView,
-		Tab, 
+		Tab,
 		TabItem,
 		GoodList,
 		XButton,
@@ -137,10 +138,10 @@ export default {
 					tag: 'needComment',
 					text: '待评价'
 				},
-				{
-					tag: 'needService',
-					text: '售后'
-				}
+				// {
+				// 	tag: 'needService',
+				// 	text: '售后'
+				// }
 			],
 			index: 0,
 			// orderList: myOrders
@@ -170,19 +171,19 @@ export default {
 		tabHandler(tag){
 			// switch(tag){
 			// case 'needPay':
-				
+
 			// 	break;
 			// case 'needSend':
-				
+
 			// 	break;
 			// case 'needGet':
-				
+
 			// 	break;
 			// case 'needComment':
-				
+
 			// 	break;
 			// case 'needService':
-				
+
 			// 	break;
 			// }
 			this.$store.dispatch({
