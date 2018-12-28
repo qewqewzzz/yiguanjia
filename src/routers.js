@@ -31,6 +31,8 @@ import couponRoom from './views/my-coupon/couponRoom.vue'
 
 import mySetting from './views/my-setting/mySetting.vue'
 import login from './views/login/login.vue'
+import category from './views/category/category.vue'
+import CategoryMain from './components/category/main.vue'
 
 export default [
 	{
@@ -197,6 +199,11 @@ export default [
 			'subPage': login
 		}
 	},
+    {
+        path: '/category',
+        name: 'category',
+        component: category
+    },
 	{
 		path: '*',
 		redirect: {name: 'index'},

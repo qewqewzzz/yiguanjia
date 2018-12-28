@@ -10,7 +10,7 @@
 				<router-link
 					class="life-cat-item"
 					:to="{
-						name: 'goodCat',
+						name: 'login',
 						query: {tag: item.id}
 					}">
 					<img :src="item.img" alt="">

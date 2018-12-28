@@ -3,14 +3,14 @@
 	<div class="z-content">
 	<view-box >
 		<div class="good-detail-bottombar">
-			<div class="cart">
+			<!-- <div class="cart">
 				<router-link
 					class="zui-icon zui-icon-SHOPPING-CART-EMPTY"
 					:to="{
 						name: 'cart'
 					}">
 				</router-link>
-			</div>
+			</div> -->
 			<div class="like">
 				<span 
 					class="zui-icon"
@@ -20,6 +20,14 @@
 					@click="likeHandler($event)">
 				</span>
 			</div>
+            <div class="kefu">
+                <router-link
+                    class="zui-icon zui-icon-KEFU"
+                    :to="{
+                        name: 'cart'
+                    }">
+                </router-link>
+            </div>
 			<div 
 				class="addcart"
 				@click="toggerSpeciPopup(1)">
@@ -43,26 +51,31 @@
 		</swiper>
 
 		<div class="good-detail-head">
-			<div class="title z-ellipsis-2">{{good.title}}</div>
-			<div class="subtitle">
+			<!--<div class="subtitle">
 				<div class="params price">￥{{good.price}}</div>
 
 				<div class="params">已售{{good.soleNum}}</div>
 				
 				<div class="params">库存{{good.maxInventory}}件</div>
-			</div>
+			</div>-->
+            <div class="m-center">￥<span class="m-price">{{good.price}}</span></div>
+            <div class="m-center"><span class="m-tag">爆款</span></div>
+            <div class="m-center"><del class="m-price-del">￥{{good.price}}</del></div>
+            <div class="title z-ellipsis-2">{{good.title}}</div>
+            <div class="m-center"><img class="m-share" src="/static/img/mshare.png" alt=""></div>
 		</div>
 		
 		<div class="good-detail-specification">
 			<cell 
 				class="z-cell-item"
-				:title="'选择: 规格 / 颜色'" 
+				:title="'参数'" 
+                :value="'包包品牌 皮质'"
 				is-link 
 				@click.native="toggerSpeciPopup(0)">
 			</cell>
 		</div>
 
-		<div class="good-detail-brand">
+		<div class="good-detail-brand" v-if="false">
 			<div
 				v-if="good.brand" 
 				class="gd-brand-head">
@@ -102,11 +115,6 @@
 			</div>
 		</div>
 
-		<div class="good-detail-introduce">
-			<div class="head">——— 详情 ———</div>
-			<div class="content" v-html="good.content"></div>
-		</div>
-
 		<div class="good-detail-comment">
 			<div class="head">
 				评价
@@ -125,6 +133,11 @@
 				:comment="item">
 			</comment-card>
 		</div>
+
+        <div class="good-detail-introduce">
+            <!-- <div class="head">——— 详情 ———</div> -->
+            <div class="content" v-html="good.content"></div>
+        </div>
 
 		<popup 
 			v-model="show" 

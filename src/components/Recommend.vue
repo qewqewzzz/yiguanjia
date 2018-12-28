@@ -21,6 +21,13 @@
 		</div>
 		<article-card :articleList="recommendData"></article-card>
 	</div>
+
+    <div v-else-if="type === 'INDEXARTICLERECOMMEND'">
+        <div class="index-goodRecommend-head">
+            {{recommendTitle}}
+        </div>
+        <article-card :articleList="recommendData" :isFooter="true"></article-card>
+    </div>
 	
 	<div v-else-if="type === 'ARTICLEGOODRECOMMEND'">
 		<div class="article-good-recommend-head">

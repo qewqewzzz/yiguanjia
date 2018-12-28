@@ -33,9 +33,9 @@ export default {
 					link: 'index'
 				},
 				{
-					name: '文章',
+					name: '分类',
 					iconCls: 'zui-icon-TEA',
-					link: 'articles'
+					link: 'category'
 				},
 				{
 					name: '购物车',

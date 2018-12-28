@@ -2,10 +2,10 @@
 	<div class="z-page">
 
 		<div class="z-head life-index-head">
-			<div class="logo">
+			<!--<div class="logo">
 				<img :src="shop.logo" alt="">
 			</div>
-			<span class="title">{{shop.title}}</span>
+			<span class="title">{{shop.title}}</span>-->
 			<div class="icon-tool">
 				<router-link
 					class="zui-icon zui-icon-SEARCH_1"
@@ -14,10 +14,10 @@
 					}">
 				</router-link>
 
-				<share-popup
+				<!--<share-popup
 					:shareCls="'zui-icon-SHARE2'"
 					:share="shop.shareInfo">
-				</share-popup>
+				</share-popup>-->
 			</div>
 		</div>
 
@@ -30,19 +30,25 @@
 
 			<cat-box
 				:cats="shopCat"
-				:title="'美的一笔'">
+				:title="''">
 			</cat-box>
 
-			<sale-floor
+			<!--<sale-floor
 				:type="'floorA'"
 				:hasAll="true"
-				:floorTitle="'精选好物'"
+				:floorTitle="'特价商品'"
 				:floorData="floor1">
-			</sale-floor>
+			</sale-floor>-->
+
+            <recommend
+                :type="'INDEXARTICLERECOMMEND'"
+                :recommendTitle="'特价商品'"
+                :recommendData="recommendGoods">
+            </recommend>
 
 			<recommend
 				:type="'INDEXGOODRECOMMEND'"
-				:recommendTitle="'优物推荐'"
+				:recommendTitle="'——热品推荐——'"
 				:recommendData="recommendGoods">
 			</recommend>
 

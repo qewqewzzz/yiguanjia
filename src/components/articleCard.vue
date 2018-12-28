@@ -1,6 +1,19 @@
 <template>
 	<div>
+        <div
+            v-if="isFooter"
+            class="article-list-card">
+            <router-link
+                v-for="item in articleList"
+                :to="{
+                    name: 'goodDetail',
+                    params: {id: item.id}
+                }">
+                <img :src="item.img" alt="">
+            </router-link>
+        </div>
 		<div
+            v-else
 			class="article-list-card"
 			v-for="item in articleList">
 			<router-link
@@ -8,7 +21,7 @@
 					name: 'articleDetail',
 					params: {id: item.id}
 				}">
-				<img :src="item.img" alt="">
+                <img :src="item.img" alt="">
 				<div class="footer">
 					<div class="title z-ellipsisi">
 						{{item.title}}
@@ -17,7 +30,7 @@
 						{{item.subtitle}}
 					</div>
 					<div class="m-other z-ellipsisi">
-						<img src="/static/img/call.png" class="check-img" width="50" height="50" alt="">
+						<img src="/static/img/eye.png" class="check-img" width="50" height="50" alt="">
 						{{10000}}
 						<span class="more">查看更多>></span>
 					</div>
@@ -28,7 +41,7 @@
 </template>
 <script>
 export default {
-	props: ['articleList']
+	props: ['articleList', 'isFooter']
 }
 </script>
 <style>

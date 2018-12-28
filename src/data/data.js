@@ -28,63 +28,23 @@ export const shopCat = [
 	{
 		id: 'chaju',
 		img: '/static/img/chaju.png',
-		text: '茶具'
+		text: '会员申请'
 	},
 	{
 		id: 'jiuju',
 		img: '/static/img/jiuju.png',
-		text: '酒具'
+		text: '会员激活'
 	},
 	{
 		id: 'chuanping',
 		img: '/static/img/chuanping.png',
-		text: '床品'
+		text: '会员职责'
 	},
 	{
 		id: 'huaqi',
 		img: '/static/img/huaqi.png',
-		text: '花器'
+		text: '礼券转让'
 	},
-	{
-		id: 'canju',
-		img: '/static/img/canju.png',
-		text: '餐具'
-	},
-	{
-		id: 'baoxiang',
-		img: '/static/img/baoxiang.png',
-		text: '包箱'
-	},
-	{
-		id: 'jujia',
-		img: '/static/img/jujia.png',
-		text: '居家'
-	},
-	{
-		id: 'ruanzhuan',
-		img: '/static/img/ruanzhuan.png',
-		text: '软装'
-	},
-	{
-		id: 'shiping',
-		img: '/static/img/shiping.png',
-		text: '食品'
-	},
-	{
-		id: 'wenju',
-		img: '/static/img/wenju.png',
-		text: '文具'
-	},
-	{
-		id: 'xihu',
-		img: '/static/img/xihu.png',
-		text: '洗护'
-	},
-	{
-		id: 'quanbu',
-		img: '/static/img/quanbu.png',
-		text: '全部'
-	}
 ]
 
 // floor one
