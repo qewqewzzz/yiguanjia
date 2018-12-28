@@ -1,15 +1,15 @@
 <template>
 	<div class="z-page">
-		
-		<view-box 
+
+		<view-box
 			class="z-content"
 			v-show="!loading">
-			<div class="article-list-head">
+			<!-- <div class="article-list-head">
 				<swiper :list="banners"></swiper>
-			</div>
-			
+			</div> -->
+
 			<div class="article-list-body">
-				<article-card 
+				<article-card
 					:articleList="articles">
 				</article-card>
 				<ending-tip :showLoading="true"></ending-tip>
@@ -30,14 +30,14 @@ export default {
 	components: {
 		EndingTip,
 		ArticleCard,
-		Swiper, 
+		Swiper,
 		SwiperItem,
 		ViewBox,
 		Loading
 	},
 	data() {
 		return {
-			
+
 		}
 	},
 	created(){
@@ -60,6 +60,6 @@ export default {
 		},
 
 	}
-	
+
 }
 </script>

@@ -6,13 +6,13 @@
 				:data="data">
 			</good-list>
 		</div>
-		
+
 		<div class="comment-post-content">
 			商品评分:
-			<rater 
+			<rater
 				class="rate"
 				v-model="rate"
-				star="❤" 
+				star="❤"
 				active-color="#ED7A5D"
 				:font-size="20"
 				:margin="6"
@@ -22,9 +22,9 @@
 				<span class="tip">{{rateTip}}</span>
 			</div>
 
-			<x-textarea 
+			<x-textarea
 				class="text"
-				:max="500" 
+				:max="500"
 				:rows="4"
 				:show-counter="false"
 				@on-change="changeComment"

@@ -1,6 +1,6 @@
 <template>
 	<div class="mysetting-wrap">
-		<cell
+		<!-- <cell
 			class="z-cell-item"
 			:title="'头像'"
 			is-link>
@@ -9,36 +9,47 @@
 				class=""
 				:src="userInfo.logo">
 			</div>
+		</cell> -->
+		<cell
+			class="z-cell-item"
+			:title="'真实姓名'"
+			:value="'啦啦啦'"
+			>
 		</cell>
 		<cell
 			class="z-cell-item"
-			:title="'账号'"
-			:value="''"
-			is-link>
-		</cell>
-		<cell
-			class="z-cell-item"
-			:title="'昵称'"
-			:value="userInfo.nikeName"
-			is-link>
-		</cell>
-		<cell
-			class="z-cell-item"
-			:title="'密码'"
-			:value="''"
-			is-link>
-		</cell>
-		<cell
-			class="z-cell-item"
-			:title="'已绑定手机'"
+			:title="'手机号'"
 			:value="userInfo.tell"
-			is-link>
+			>
+		</cell>
+		<cell
+			class="z-cell-item"
+			:title="'出生日期'"
+			:value="'1888-88-88'"
+			>
+		</cell>
+		<cell
+			class="z-cell-item"
+			:title="'身份证'"
+			:value="'444444444444444444'"
+			>
+		</cell>
+		<cell
+			class="z-cell-item"
+			:title="'手机号换绑'"
+			:value="''"
+			>
+			<div>
+				444444444444444444
+				<span class="m-change"> 换绑</span>
+			</div>
 		</cell>
 
 		<group class="z-nofixed-fullbtn">
 			<x-button
+				class="m-btn"
 				type="warn">
-				退出账号
+				提交
 			</x-button>
 		</group>
 	</div>

@@ -2,63 +2,72 @@
 	<div class="z-content" v-show="!loading">
 		<view-box >
 			<div class="article-detail-wrap">
+				<div class="article-detail-logo">
+					<img src="/static/img/article-default.png" height="174" width="1076" alt="">
+				</div>
 				<div class="article-detail-head">
-					<div class="title">{{article.title}}</div>
+					<div class="title">
+						{{'资讯标题'}}
+						<span class="check">
+							<img src="/static/img/call.png" class="check-img" width="50" height="50" alt="">
+							10000
+						</span>
+					</div>
 					<div class="info">
-						<span>{{article.createAt}}</span>
-						<span>{{article.author}}</span>
-						<share-popup
+						<!-- <span>{{article.createAt}}</span> -->
+						<!-- <span>{{article.author}}</span> -->
+						<!-- <share-popup
 							class="share"
 							:shareCls="'zui-icon-SHARE2'"
 							:share="shareInfo">
-						</share-popup>
+						</share-popup> -->
 					</div>
 				</div>
 
-				<div 
+				<div
 					class="article-detail-body"
 					v-html="article.content">
 				</div>
 
 				<div class="article-detail-foot">
 
-					<div class="like">
-						<span 
+					<!-- <div class="like">
+						<span
 							class="zui-icon "
 							:class="likeState ? likeCls.likedCls : likeCls.unlikeCls"
 							@click="likeHandler">
 						</span>
 						<span>{{article.like}}</span>
-					</div>
-					<div class="read">
-						阅读 
+					</div> -->
+					<!-- <div class="read">
+						阅读
 						<span>{{article.read}}</span>
-					</div>
+					</div> -->
 
-					<div class="reprint">转载</div>
+					<!-- <div class="reprint">转载</div> -->
 				</div>
 			</div>
 
-			<recommend 
+			<!-- <recommend
 				:type="'ARTICLEGOODRECOMMEND'"
 				:recommendTitle="'商品推荐'"
 				:recommendData="recommendGoods">
-			</recommend>
-			
-			<recommend 
+			</recommend> -->
+
+			<!-- <recommend
 				:type="'ARTICLERECOMMEND'"
 				:recommendTitle="'更多好文推荐'"
 				:recommendData="recommendArticles">
-			</recommend>
+			</recommend> -->
 		</view-box>
 
-		<router-link
+		<!-- <router-link
 			class="article-detail-bottombar"
 			:to="{
 				name: 'index'
 			}">
 			你就不去看看？
-		</router-link>
+		</router-link> -->
 	</div>
 </template>
 <script>
@@ -96,7 +105,7 @@ export default {
 			return this.$store.getters.loading
 		},
 		article(){
-			return this.$store.getters.article 
+			return this.$store.getters.article
 		},
 		recommendArticles(){
 			return this.$store.getters.recArtArticles
@@ -108,7 +117,7 @@ export default {
 	methods: {
 		likeHandler() {
 			if(this.likeState) {
-				return 
+				return
 			}else{
 				this.likeState = true
 				this.article.like ++

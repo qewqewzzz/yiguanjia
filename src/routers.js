@@ -30,6 +30,7 @@ import myCoupon from './views/my-coupon/myCoupon.vue'
 import couponRoom from './views/my-coupon/couponRoom.vue'
 
 import mySetting from './views/my-setting/mySetting.vue'
+import login from './views/login/login.vue'
 
 export default [
 	{
@@ -186,6 +187,14 @@ export default [
 		components: {
 			'default': mine,
 			'subPage': mySetting
+		}
+	},
+	{
+		path: '/login',
+		name: 'login',
+		components: {
+			'default': mine,
+			'subPage': login
 		}
 	},
 	{

@@ -1,11 +1,11 @@
 <template>
 	<div>
 		<div
-			class="article-list-card" 
+			class="article-list-card"
 			v-for="item in articleList">
-			<router-link  
+			<router-link
 				:to="{
-					name: 'articleDetail', 
+					name: 'articleDetail',
 					params: {id: item.id}
 				}">
 				<img :src="item.img" alt="">
@@ -15,6 +15,11 @@
 					</div>
 					<div class="subtitle z-ellipsisi">
 						{{item.subtitle}}
+					</div>
+					<div class="m-other z-ellipsisi">
+						<img src="/static/img/call.png" class="check-img" width="50" height="50" alt="">
+						{{10000}}
+						<span class="more">查看更多>></span>
 					</div>
 				</div>
 			</router-link>
@@ -28,27 +33,41 @@ export default {
 </script>
 <style>
 .article-list-card{
-	margin-left: 8px;
-	margin-right: 8px;
+	/* margin-left: 8px; */
+	/* margin-right: 8px; */
 	margin-bottom: 8px;
-	padding: 8px 8px 0 8px;
+	padding: 8px 0px 0 0px;
 	background-color: #fff;
 }
 .article-list-card .footer{
-	padding: 20px 0 35px;
-	text-align: center;
+	padding: 0px 0 10px;
+	/* text-align: center; */
 	overflow: hidden;
 }
 .article-list-card .footer .title{
-	margin: 0 20px;
-	font-size: 18px;
+	margin: 0 16px;
+	font-size: 16px;
 	font-weight: 500;
 	color: #404040;
 }
 .article-list-card .footer .subtitle{
-	margin: 0 20px;
-	padding-top: 8px;
-	font-size: 15px;
+	margin: 0 16px;
+	padding-top: 6px;
+	font-size: 14px;
 	color: #868686;
+}
+.article-list-card .footer .m-other{
+	margin: 0 16px;
+	padding-top: 6px;
+	font-size: 14px;
+	color: #868686;
+}
+.article-list-card .footer .m-other .check-img{
+	width: 20px;
+	vertical-align: middle;
+}
+.article-list-card .footer .m-other .more{
+	float: right;
+	color: #EDA849;
 }
 </style>

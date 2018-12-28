@@ -1,13 +1,13 @@
 <template>
 	<div class="life-cat-wrap">
-		<div class="life-cat-head" v-if="title">
+		<!-- <div class="life-cat-head" v-if="title">
 			{{title}}
-		</div>
+		</div> -->
 		<flexbox :gutter="0" wrap="wrap">
-			<flexbox-item 
-				:span="1/5" 
+			<flexbox-item
+				:span="1/4"
 				v-for="item in cats">
-				<router-link 
+				<router-link
 					class="life-cat-item"
 					:to="{
 						name: 'goodCat',
@@ -26,7 +26,7 @@ import { Flexbox, FlexboxItem } from 'vux'
 export default {
 	props: ['cats', 'title'],
 	components: {
-		Flexbox, 
+		Flexbox,
 		FlexboxItem
 	}
 }
@@ -35,6 +35,7 @@ export default {
 .life-cat-wrap{
 	padding: 14px 8px;
 	background-color: #fff;
+	border-top: 8px solid #efeff4;
 }
 .life-cat-head{
 	text-align: center;

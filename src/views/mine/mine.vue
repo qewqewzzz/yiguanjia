@@ -209,6 +209,7 @@ export default {
 			}, {
 				text: '客服',
 				icon: '/static/img/call.png',
+				link: 'login',
 			}]
 		}
 	}
