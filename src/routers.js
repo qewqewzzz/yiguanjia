@@ -34,6 +34,9 @@ import login from './views/login/login.vue'
 import category from './views/category/category.vue'
 import CategoryMain from './components/category/main.vue'
 
+import vipApply from './views/vip/apply.vue'
+import couponGive from './views/my-coupon/couponGive.vue'
+
 export default [
 	{
 		path: '/index',
@@ -204,6 +207,22 @@ export default [
         name: 'category',
         component: category
     },
+    {
+		path: '/vip/apply',
+		name: 'vipApply',
+		components: {
+			'default': mine,
+			'subPage': vipApply
+		}
+	},
+	{
+		path: '/mine/couponGive',
+		name: 'couponGive',
+		components: {
+			'default': mine,
+			'subPage': couponGive
+		}
+	},
 	{
 		path: '*',
 		redirect: {name: 'index'},

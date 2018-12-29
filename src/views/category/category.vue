@@ -25,7 +25,7 @@
                          v-for="(item,index) in list"
                          @click="linktoDetail(item.id)"
                          :key="index">
-                        <img :src="'/static/img/active.png'"
+                        <img :src="'/static/img/banner-life.png'"
                              alt=""
                              class="goods-image">
                         <div class="goods-name">{{item.name}}</div>
@@ -131,7 +131,7 @@ export default {
             padding: 0px;
             height: 100%;
             box-sizing: border-box;
-            -webkit-overflow-scrolling: touch; 
+            -webkit-overflow-scrolling: touch;
             .category-top {
                 .category-header {
                     img {

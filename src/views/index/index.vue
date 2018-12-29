@@ -23,9 +23,10 @@
 
 		<view-box class="z-content">
 			<div class="life-index-banner">
-				<swiper
+				<!-- <swiper
 					:list="shopBanner">
-				</swiper>
+				</swiper> -->
+				<img src="/static/img/article-more.jpg" class="" alt="">
 			</div>
 
 			<cat-box

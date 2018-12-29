@@ -28,7 +28,8 @@ export const shopCat = [
 	{
 		id: 'chaju',
 		img: '/static/img/chaju.png',
-		text: '会员申请'
+		text: '会员申请',
+		link: 'vipApply',
 	},
 	{
 		id: 'jiuju',
@@ -43,7 +44,8 @@ export const shopCat = [
 	{
 		id: 'huaqi',
 		img: '/static/img/huaqi.png',
-		text: '礼券转让'
+		text: '礼券转让',
+		link: 'couponGive',
 	},
 ]
 
@@ -150,7 +152,7 @@ export const article = {
 	read: '222',
 	like: '333',
 	content: '文章极物商城文章极物商城文章极物商城文章极物商城文章馆文章xx'
-} 
+}
 
 // article recommend
 export const articleRecommend = [
@@ -338,7 +340,7 @@ export const comments = [
 	}
 ]
 
-// cpmment post 
+// cpmment post
 export const commentPost = {
 	goods: [
 		{
@@ -420,7 +422,7 @@ export const goodDetail = {
 }
 
 /*********** good pay ***********/
-// pay pill 
+// pay pill
 export const payPill = [
 	{
 		id: 'a',
@@ -505,7 +507,7 @@ export const payPill = [
 
 
 /******* good search *********/
-// search result 
+// search result
 export const searchResult = [
 	{
 		id: 'a',
@@ -760,7 +762,7 @@ export const myLikes = [
 
 
 /*********** my order ************/
-// order list 
+// order list
 export const myOrders = [
 	{
 		id: 'a',
@@ -874,7 +876,7 @@ export const myOrders = [
 	}
 ]
 
-// order detail 
+// order detail
 export const myOrder = {
 	id: '173434831258434',
 	name: '由極物商城发货',

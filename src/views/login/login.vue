@@ -1,7 +1,7 @@
 <template>
 	<div class="login-wrap">
 		<div class="m-card">
-			<img src="/static/img/yiguanjia.png" class="m-logo" alt="">
+			<img src="/static/img/yiguanjia.png" class="m-logo-small" alt="">
 		</div>
 		<group class="z-nofixed-fullbtn">
 			<x-input class="m-input" title="" name="mobile" placeholder="请输入手机号" keyboard="number" is-type="china-mobile"></x-input>
