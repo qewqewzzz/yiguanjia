@@ -2,15 +2,15 @@
 	<div class="z-page">
 		<view-box class="z-content">
 			<div class="catresult-catbar-wrap">
-				<router-link 
+				<router-link
 					class="catresult-catbar-back zui-icon zui-icon-back"
 					:to="{name: 'index'}">
 				</router-link>
-				<scroller 
+				<scroller
 					class=""
-					lock-y 
+					lock-y
 					:scrollbar-x='false'>
-					<scroller-box 
+					<scroller-box
 						:scrollerItemStyle="{
 							width: 60,
 							marginLeft: 0,
@@ -18,7 +18,7 @@
 						}"
 						:datas="catTags">
 						<template scope="props">
-							<div 
+							<div
 								class="catresult-catbar-item"
 								:class="ItemSelected ? 'catbar-item-active' : ''"
 								:tag="props.data.tag"
@@ -29,9 +29,9 @@
 					</scroller-box>
 				</scroller>
 			</div>
-			
-			<div 
-				class="catresult-result-wrap" 
+
+			<div
+				class="catresult-result-wrap"
 				v-show="!loading">
 				<swiper :list="catBanner"></swiper>
 				<good-grid :data="catResult"></good-grid>
@@ -51,9 +51,9 @@ import {Tab, TabItem, Swiper, SwiperItem, ViewBox, Scroller} from 'vux'
 
 export default {
 	components: {
-		Tab, 
-		TabItem, 
-		Swiper, 
+		Tab,
+		TabItem,
+		Swiper,
 		SwiperItem,
 		ViewBox,
 		GoodGrid,

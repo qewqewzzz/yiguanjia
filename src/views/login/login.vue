@@ -1,7 +1,7 @@
 <template>
 	<div class="login-wrap">
 		<div class="m-card">
-			<img src="/static/img/baoxiang.png" width="76" alt="">
+			<img src="/static/img/yiguanjia.png" class="m-logo" alt="">
 		</div>
 		<group class="z-nofixed-fullbtn">
 			<x-input class="m-input" title="" name="mobile" placeholder="请输入手机号" keyboard="number" is-type="china-mobile"></x-input>
@@ -18,16 +18,21 @@
 		<group class="z-nofixed-fullbtn">
 			<x-input class="m-input" title="" name="rec" placeholder="输入邀请码" keyboard="number" is-type="china-mobile"></x-input>
 		</group>
-		<div class="m-card">
+		<div class="m-tip">
 			<icon type="warn" class="login-tip-icon"></icon>
 			<span class="login-tip-text">&nbsp;请输入正确的手机号</span>
 		</div>
 		<group class="z-nofixed-fullbtn">
-			<x-button
-				class="m-btn m-disabledBtn"
-				>
-				登录
-			</x-button>
+			<router-link
+				:to="{
+					name: 'index',
+				}">
+				<x-button
+					:class="['m-btn', 'm-loginBtn', {'m-disabledBtn': false}]"
+					>
+					登录
+				</x-button>
+			</router-link>
 		</group>
 	</div>
 </template>
