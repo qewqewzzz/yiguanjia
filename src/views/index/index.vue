@@ -27,6 +27,16 @@
 					:list="shopBanner">
 				</swiper> -->
 				<img src="/static/img/article-more.jpg" class="" alt="">
+				<div style="padding-bottom:10px;">
+					<div style="display:inline-block;margin-left:10px;font-size:14px;">
+				    	<img slot="icon" class="m-bugle" style="display:inline-block;margin-right:5px;" src="/static/img/bugle.png">
+				    	<span style="vertical-align: middle;">精彩资讯 西湖店盛大开,新老用户享七折</span>
+					</div>
+					<div style="display:inline-block;margin-right:10px;font-size:14px;float:right;">
+				    	<span style="vertical-align: middle;color:#B59744;">全部</span>
+				       	<img slot="icon" class="m-more" style="display:inline-block;margin-right:5px;" src="/static/img/more.png">
+					</div>
+				</div>
 			</div>
 
 			<cat-box
@@ -70,7 +80,7 @@ import EndingTip from '../../components/EndingTip.vue'
 import Recommend from '../../components/Recommend.vue'
 import ScrollerBox from '../../components/ScrollerBox.vue'
 import GoodGrid from '../../components/GoodGrid.vue'
-import {Swiper, SwiperItem, Popup, ViewBox} from 'vux'
+import {Swiper, SwiperItem, Popup, ViewBox, Cell, Group} from 'vux'
 
 const {mapGetters} = require('../../../node_modules/vuex/dist/vuex.min.js')
 
@@ -86,7 +96,9 @@ export default {
 		SwiperItem,
 		ScrollerBox,
 		SharePopup,
-		ViewBox
+		ViewBox,
+		Cell,
+		Group
 	},
 	data() {
 		return {
