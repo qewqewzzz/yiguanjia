@@ -34,7 +34,8 @@ export const shopCat = [
 	{
 		id: 'jiuju',
 		img: '/static/img/jiuju.png',
-		text: '会员激活'
+		text: '会员激活',
+		link: 'vipActivation',
 	},
 	{
 		id: 'chuanping',
