@@ -6,34 +6,34 @@
 			:iconCls="'zui-icon-MEMO'"
 			:text="'您的收藏夹空空如也，赶紧去逛逛吧！'">
 		</empty-view>
-		
+
 		<div v-else>
-			<div 
+			<div
 				class="my-like-list-wrap">
 				<swipeout>
 					<swipeout-item
 						v-for="(item, index) in likeList"
 						transition-mode="follow"
-						@on-close="handleEvents('on-close')" 
+						@on-close="handleEvents('on-close')"
 						@on-open="handleEvents('on-open')">
 						<div slot="right-menu">
-							<swipeout-button 
+							<swipeout-button
 								type="primary"
-								@click.native="add2cartHandler(index)" 
+								@click.native="add2cartHandler(index)"
 								>
 								加入购物车
 							</swipeout-button>
-							<swipeout-button 
+							<swipeout-button
 								type="warn"
-								@click.native="cancleLikeHnadler(item.id, index)" 
+								@click.native="cancleLikeHnadler(item.id, index)"
 								>
 								取消收藏
 							</swipeout-button>
 						</div>
 						<div slot="content">
-							<good-list 
+							<good-list
 								slot="content"
-								:type="'SUBINFO'"
+								:type="'SUBINFOLIKE'"
 								:data="item">
 							</good-list>
 						</div>
@@ -42,7 +42,7 @@
 
 			</div>
 
-			<ending-tip 
+			<ending-tip
 				:showLoading="true">
 			</ending-tip>
 
@@ -63,14 +63,14 @@ export default {
 		EmptyView,
 		EndingTip,
 		GoodList,
-		Swipeout, 
-		SwipeoutItem, 
+		Swipeout,
+		SwipeoutItem,
 		SwipeoutButton,
 		ViewBox
 	},
 	data() {
 		return {
-			
+
 		}
 	},
 	computed: {

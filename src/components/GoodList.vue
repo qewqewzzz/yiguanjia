@@ -18,6 +18,26 @@
 
 	<div
 		class="good-list-wrap"
+		v-else-if="type === 'SUBINFOLIKE'">
+		<img class="good-list-img" :src="data.img" alt="">
+		<div class="good-list-info">
+			<div class="title z-ellipsis-2">
+				{{data.title}}
+			</div>
+			<div class="price z-ellipsis-2">
+				￥{{data.price}}
+			</div>
+			<slot name="like">
+				<div class="likeBtn z-ellipsis-2">
+					<x-button class="m-collect" plain>取消收藏</x-button>
+					<x-button class="m-add" plain>加入购物车</x-button>
+				</div>
+			</slot>
+		</div>
+	</div>
+
+	<div
+		class="good-list-wrap"
 		v-else-if="type==='SUBINFOS'">
 		<img class="good-list-img" :src="data.img" alt="">
 		<div class="good-list-info">
@@ -43,8 +63,13 @@
 	</div>
 </template>
 <script>
+import { XButton } from 'vux'
+
 export default {
-	props: ['type','data']
+	props: ['type','data'],
+	components: {
+        XButton,
+    },
 }
 </script>
 <style>
@@ -92,5 +117,24 @@ export default {
 	font-size: 12px;
 	color: #868686;
 	line-height: 1.6;
+}
+.good-list-wrap .good-list-info .likeBtn{
+}
+.good-list-wrap .good-list-info .likeBtn .m-collect{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	border-radius: 0px;
+}
+.good-list-wrap .good-list-info .likeBtn .m-add{
+	display: inline-block;
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	font-size: 14px;
+	border-radius: 0px;
+	margin-left: 10px;
 }
 </style>

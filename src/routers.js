@@ -37,6 +37,9 @@ import CategoryMain from './components/category/main.vue'
 import vipApply from './views/vip/apply.vue'
 import vipActivation from './views/vip/activation.vue'
 import couponGive from './views/my-coupon/couponGive.vue'
+import couponDetail from './views/my-coupon/couponDetail.vue'
+import myShop from './views/my-shop/myShop.vue'
+import myAbout from './views/my-about/myAbout.vue'
 
 export default [
 	{
@@ -230,6 +233,30 @@ export default [
 		components: {
 			'default': mine,
 			'subPage': couponGive
+		}
+	},
+	{
+		path: '/mine/couponDetail',
+		name: 'couponDetail',
+		components: {
+			'default': mine,
+			'subPage': couponDetail
+		}
+	},
+	{
+		path: '/mine/myShop',
+		name: 'myShop',
+		components: {
+			'default': mine,
+			'subPage': myShop
+		}
+	},
+	{
+		path: '/mine/myAbout',
+		name: 'myAbout',
+		components: {
+			'default': mine,
+			'subPage': myAbout
 		}
 	},
 	{

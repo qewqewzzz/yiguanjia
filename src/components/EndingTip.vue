@@ -6,13 +6,14 @@
 		</div>
 		<div class="ending-nomore"
 			v-else>
-			<span>—— {{nomore}} ——</span>
+            <span v-if="tipText">{{tipText}}</span>
+			<span v-else>—— {{nomore}} ——</span>
 		</div>
 	</div>
 </template>
 <script>
 export default {
-	props: ['showLoading'],
+	props: ['showLoading', 'tipText'],
 	data() {
 		return {
 			nomore: '我是有底线的'
@@ -76,14 +77,14 @@ export default {
 
 @-webkit-keyframes steam{
     0%{height: 0px;}
-    100%{height: 6px;}            
+    100%{height: 6px;}
 }
 @-moz-keyframes steam{
     0%{height: 0px}
-    100%{height: 6px;}            
+    100%{height: 6px;}
 }
 @keyframes steam{
     0%{height: 0px}
-    100%{height: 6px;}            
+    100%{height: 6px;}
 }
 </style>

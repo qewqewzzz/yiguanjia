@@ -1,5 +1,5 @@
 <template>
-    <div class="login-wrap">
+    <div class="couponDetail-wrap">
         <div class="m-card m-pr">
             <img src="/static/img/discount.png" class="m-logo" alt="">
             <span class="m-yuan">￥</span>
@@ -8,33 +8,31 @@
                 <p class="m-info-tip">你的礼券余额</p>
             </div>
         </div>
-        <group class="m-card" style="padding-bottom: 10px">
-            <x-input class="m-input" title="" placeholder="请输入转赠的手机号" keyboard="number" is-type="china-mobile" placeholder-align="left" text-align="left"></x-input>
-        </group>
-        <div class="m-helpBox" align="right">
-            <img src="/static/img/help.png" class="m-help" alt="">
-        </div>
-        <group class="m-card" style="padding-top: 0px">
-            <x-input class="m-input" title="" placeholder="请输入转赠金额" keyboard="number" is-type="" placeholder-align="left" text-align="left"></x-input>
-        </group>
-        <group class="z-nofixed-fullbtn">
+        <group class="z-nofixed-fullbtn m-give">
             <router-link
                 :to="{
                     name: 'index',
                 }">
                 <x-button
-                    :class="['m-btn', 'm-loginBtn']"
+                    plain
+                    :class="['m-btn', 'm-giveBtn']"
                     >
                     转赠
                 </x-button>
             </router-link>
         </group>
+        <p style="margin-left:14px;font-size:16px;m-bottom:5px;">礼券明细</p>
+        <div class="m-cell-box">
+            <m-cell :title="'真实姓名'" :value="'啦啦啦'"></m-cell>
+            <m-cell class="border-top-grey" :title="'真实姓名'" :value="'啦啦啦'"></m-cell>
+        </div>
     </div>
 </template>
 <script>
-require('./couponGive.less')
+require('./couponDetail.less')
 import {userSettings} from '../../data/data.js'
 
+import MCell from '../../components/mCell.vue'
 import { Cell, Group, XButton, Tabbar, TabbarItem, XInput, Flexbox, FlexboxItem, Icon, XTextarea, DatetimeRange } from 'vux'
 
 export default {
@@ -49,7 +47,8 @@ export default {
         FlexboxItem,
         Icon,
         XTextarea,
-        DatetimeRange
+        DatetimeRange,
+        MCell
     },
     data() {
         return {

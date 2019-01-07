@@ -1,21 +1,20 @@
 <template>
     <div class="login-wrap">
         <div class="m-card m-pr">
-            <img src="/static/img/discount.png" class="m-logo" alt="">
-            <span class="m-yuan">￥</span>
-            <div class="m-info-box">
-                <p class="m-info-price">1000,000</p>
-                <p class="m-info-tip">你的礼券余额</p>
+            <img src="/static/img/vip.png" class="m-logo" alt="">
+            <div class="m-logo-title" style="top:60%;">
+                <p style="color:#5D4432;font-size:18px;">翼管家店铺申请</p>
+                <p style="color:#CAAC8B;font-size:15px;text-align:center;">请填写以下资料</p>
             </div>
         </div>
-        <group class="m-card" style="padding-bottom: 10px">
-            <x-input class="m-input" title="" placeholder="请输入转赠的手机号" keyboard="number" is-type="china-mobile" placeholder-align="left" text-align="left"></x-input>
+        <group class="">
+            <x-input class="m-input" title="真实姓名" placeholder="" keyboard="" is-type="china-name" placeholder-align="right" text-align="right"></x-input>
         </group>
-        <div class="m-helpBox" align="right">
-            <img src="/static/img/help.png" class="m-help" alt="">
-        </div>
-        <group class="m-card" style="padding-top: 0px">
-            <x-input class="m-input" title="" placeholder="请输入转赠金额" keyboard="number" is-type="" placeholder-align="left" text-align="left"></x-input>
+        <group class="">
+            <x-input class="m-input" title="手机号" placeholder="" keyboard="number" is-type="china-mobile" placeholder-align="right" text-align="right"></x-input>
+        </group>
+        <group class="">
+            <x-input class="m-input" title="加盟地区" placeholder="" keyboard="" is-type="" placeholder-align="right" text-align="right"></x-input>
         </group>
         <group class="z-nofixed-fullbtn">
             <router-link
@@ -25,14 +24,14 @@
                 <x-button
                     :class="['m-btn', 'm-loginBtn']"
                     >
-                    转赠
+                    提交
                 </x-button>
             </router-link>
         </group>
     </div>
 </template>
 <script>
-require('./couponGive.less')
+require('./myShop.less')
 import {userSettings} from '../../data/data.js'
 
 import { Cell, Group, XButton, Tabbar, TabbarItem, XInput, Flexbox, FlexboxItem, Icon, XTextarea, DatetimeRange } from 'vux'

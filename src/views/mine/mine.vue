@@ -184,10 +184,11 @@ export default {
 			otherOperations: [{
 				text: '礼券',
 				icon: '/static/img/gifts.png',
-				link: 'myCoupon',
+				link: 'couponDetail',
 			}, {
 				text: '申请开店',
 				icon: '/static/img/reply.png',
+				link: 'myShop',
 			}, {
 				text: '分享有礼',
 				icon: '/static/img/share.png',
@@ -206,6 +207,7 @@ export default {
 			}, {
 				text: '关于我们',
 				icon: '/static/img/V.png',
+				link: 'myAbout',
 			}, {
 				text: '客服',
 				icon: '/static/img/call.png',

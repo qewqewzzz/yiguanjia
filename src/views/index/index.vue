@@ -63,7 +63,7 @@
 				:recommendData="recommendGoods">
 			</recommend>
 
-			<ending-tip :showLoading="false"></ending-tip>
+			<ending-tip :showLoading="false" tipText="已到底部"></ending-tip>
 
 		</view-box>
 
