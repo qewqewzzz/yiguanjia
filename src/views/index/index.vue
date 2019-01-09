@@ -1,7 +1,7 @@
 <template>
 	<div class="z-page">
 
-		<div class="z-head life-index-head">
+		<div class="z-head life-index-head" v-if="false">
 			<!--<div class="logo">
 				<img :src="shop.logo" alt="">
 			</div>
@@ -22,7 +22,7 @@
 		</div>
 
 		<view-box class="z-content">
-			<div class="life-index-banner">
+			<div class="life-index-banner life-pr">
 				<!-- <swiper
 					:list="shopBanner">
 				</swiper> -->
@@ -37,6 +37,17 @@
 				       	<img slot="icon" class="m-more" style="display:inline-block;margin-right:5px;" src="/static/img/more.png">
 					</div>
 				</div>
+				<div class="life-index-search">
+					<div class="life-index-search-box">
+						<x-input class="life-index-search-input" placeholder="莎莎苏女鞋">
+					      	<div slot="label">
+					      		<img class="logo" style="padding-right:10px;display:inline-block;" src="/static/img/w.png" width="24" height="24">
+			        			<span>|</span>
+					        	<img class="logo" style="padding-right:10px;display:inline-block" src="/static/img/search.png" width="24" height="24">
+					      	</div>
+					      </x-input>
+					</div>
+			    </div>
 			</div>
 
 			<cat-box
@@ -80,7 +91,7 @@ import EndingTip from '../../components/EndingTip.vue'
 import Recommend from '../../components/Recommend.vue'
 import ScrollerBox from '../../components/ScrollerBox.vue'
 import GoodGrid from '../../components/GoodGrid.vue'
-import {Swiper, SwiperItem, Popup, ViewBox, Cell, Group} from 'vux'
+import {Swiper, SwiperItem, Popup, ViewBox, Cell, Group, XInput} from 'vux'
 
 const {mapGetters} = require('../../../node_modules/vuex/dist/vuex.min.js')
 
@@ -98,7 +109,8 @@ export default {
 		SharePopup,
 		ViewBox,
 		Cell,
-		Group
+		Group,
+		XInput
 	},
 	data() {
 		return {
