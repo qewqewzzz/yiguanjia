@@ -40,6 +40,7 @@ import couponGive from './views/my-coupon/couponGive.vue'
 import couponDetail from './views/my-coupon/couponDetail.vue'
 import myShop from './views/my-shop/myShop.vue'
 import myAbout from './views/my-about/myAbout.vue'
+import myPhone from './views/my-phone/myPhone.vue'
 
 export default [
 	{
@@ -257,6 +258,14 @@ export default [
 		components: {
 			'default': mine,
 			'subPage': myAbout
+		}
+	},
+	{
+		path: '/mine/myPhone',
+		name: 'myPhone',
+		components: {
+			'default': mine,
+			'subPage': myPhone
 		}
 	},
 	{

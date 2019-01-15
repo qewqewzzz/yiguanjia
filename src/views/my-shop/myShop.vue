@@ -1,5 +1,5 @@
 <template>
-    <div class="login-wrap">
+    <div class="myshop-wrap">
         <div class="m-card m-pr">
             <img src="/static/img/vip.png" class="m-logo" alt="">
             <div class="m-logo-title" style="top:60%;">

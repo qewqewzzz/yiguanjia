@@ -41,16 +41,27 @@
 			>
 			<div>
 				444444444444444444
-				<span class="m-change"> 换绑</span>
+				<router-link
+					:to="{
+						name: 'myPhone',
+					}">
+
+					<span class="m-change"> 换绑</span>
+				</router-link>
 			</div>
 		</cell>
 
 		<group class="z-nofixed-fullbtn">
-			<x-button
-				class="m-btn"
-				type="warn">
-				提交
-			</x-button>
+			<router-link
+				:to="{
+					name: 'mine',
+				}">
+				<x-button
+					class="m-btn"
+					type="warn">
+					提交
+				</x-button>
+			</router-link>
 		</group>
 	</div>
 </template>

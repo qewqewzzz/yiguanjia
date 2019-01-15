@@ -13,7 +13,7 @@
 						name: item.link || 'login',
 						query: {tag: item.id}
 					}">
-					<img :src="item.img" alt="">
+					<img class="life-cat-item-img" :src="item.img" alt="">
 					<div>{{item.text}}</div>
 				</router-link>
 			</flexbox-item>
@@ -50,5 +50,9 @@ export default {
 	line-height: 1.4;
 	font-size: 12px;
 	color: #404040;
+}
+.life-cat-item-img{
+	width: 28px;
+	height: 28px;
 }
 </style>

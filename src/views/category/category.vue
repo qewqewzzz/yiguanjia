@@ -1,8 +1,8 @@
 <template>
     <div class="category">
-        <div class="search-box">
+        <!-- <div class="search-box">
             <search v-model="searchValue" position="absolute" auto-scroll-to-top top="0px" @on-cancel="onCancel" @on-submit="onSubmit" placeholder="请输入关键字" ref="search"></search>
-        </div>
+        </div> -->
         <ul class="category-menu vux-1px-r">
             <li v-for="(item,index) in menu"
                 :key="index"
@@ -41,6 +41,10 @@
 import { Search, Toast } from 'vux'
 export default {
     name: 'category',
+    components: {
+        Search,
+        Toast,
+    },
     data() {
         return {
             menu: [{"id":2,"name":"果味","topic_img_id":6,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-dryfruit.png"}},{"id":3,"name":"蔬菜","topic_img_id":5,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-vg.png"}},{"id":4,"name":"炒货","topic_img_id":7,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-fry-a.png"}},{"id":5,"name":"点心","topic_img_id":4,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-cake.png"}},{"id":6,"name":"粗茶","topic_img_id":8,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-tea.png"}},{"id":7,"name":"淡饭","topic_img_id":9,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-rice.png"}}],

@@ -2,7 +2,7 @@
 // shop
 export const shop = {
 	logo: '/static/img/life-index-logo.png',
-	title: '极物商城',
+	title: '翼管家',
 	// shareInfo: {
 	// 	title: '长按二维码分享',
 	// 	qrcode: '/static/img/good-default.jpg'
@@ -26,25 +26,25 @@ export const shopBanner = [
 // cat
 export const shopCat = [
 	{
-		id: 'chaju',
-		img: '/static/img/chaju.png',
+		id: 'member',
+		img: '/static/img/member.png',
 		text: '会员申请',
 		link: 'vipApply',
 	},
 	{
-		id: 'jiuju',
-		img: '/static/img/jiuju.png',
+		id: 'active',
+		img: '/static/img/active.png',
 		text: '会员激活',
 		link: 'vipActivation',
 	},
 	{
-		id: 'chuanping',
-		img: '/static/img/chuanping.png',
+		id: 'duty',
+		img: '/static/img/duty.png',
 		text: '会员职责'
 	},
 	{
-		id: 'huaqi',
-		img: '/static/img/huaqi.png',
+		id: 'gift',
+		img: '/static/img/gift.png',
 		text: '礼券转让',
 		link: 'couponGive',
 	},
@@ -377,7 +377,7 @@ export const goodDetail = {
 	likeNum: '333',
 	brand: {
 		logo: '/static/img/life-index-logo.png',
-		title: '极物商城',
+		title: '翼管家',
 		subtitle: '生活态度'
 	},
 	banners: [
@@ -386,7 +386,7 @@ export const goodDetail = {
 		'/static/img/banner-life.png',
 		'/static/img/banner-life.png'
 	],
-	storeName: '极物商城',
+	storeName: '翼管家',
 	content: '我是详情',
 	maxInventory: '999',
 	params: [

@@ -32,21 +32,26 @@
 				    	<img slot="icon" class="m-bugle" style="display:inline-block;margin-right:5px;" src="/static/img/bugle.png">
 				    	<span style="vertical-align: middle;">精彩资讯 西湖店盛大开,新老用户享七折</span>
 					</div>
-					<div style="display:inline-block;margin-right:10px;font-size:14px;float:right;">
+					<div style="display:inline-block;margin-right:10px;font-size:14px;float:right;margin-top: 4px;">
 				    	<span style="vertical-align: middle;color:#B59744;">全部</span>
 				       	<img slot="icon" class="m-more" style="display:inline-block;margin-right:5px;" src="/static/img/more.png">
 					</div>
 				</div>
 				<div class="life-index-search">
-					<div class="life-index-search-box">
-						<x-input class="life-index-search-input" placeholder="莎莎苏女鞋">
-					      	<div slot="label">
-					      		<img class="logo" style="padding-right:10px;display:inline-block;" src="/static/img/w.png" width="24" height="24">
-			        			<span>|</span>
-					        	<img class="logo" style="padding-right:10px;display:inline-block" src="/static/img/search.png" width="24" height="24">
-					      	</div>
-					      </x-input>
-					</div>
+					<router-link
+						:to="{
+							name: 'searchResult'
+						}">
+						<div class="life-index-search-box">
+							<x-input class="life-index-search-input" placeholder="莎莎苏女鞋">
+						      	<div slot="label">
+						      		<img class="logo" style="padding-right:5px;display:inline-block;width:26px;height:16px;" src="/static/img/w.png" width="24" height="24">
+				        			<span style="vertical-align:middle;font-size:14px;">|</span>
+						        	<img class="logo" style="padding-left:5px;padding-right:10px;display:inline-block;width:16px;height:16px;" src="/static/img/search.png" width="24" height="24">
+						      	</div>
+						      </x-input>
+						</div>
+					</router-link>
 			    </div>
 			</div>
 
