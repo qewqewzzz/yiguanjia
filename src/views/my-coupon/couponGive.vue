@@ -1,6 +1,6 @@
 <template>
-    <div class="login-wrap">
-        <div class="m-card m-pr">
+    <div class="couponGive-wrap">
+        <div class="m-card m-pr m-topbg">
             <img src="/static/img/discount.png" class="m-logo" alt="">
             <span class="m-yuan">￥</span>
             <div class="m-info-box">

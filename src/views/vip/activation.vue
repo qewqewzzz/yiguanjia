@@ -1,5 +1,5 @@
 <template>
-    <div class="login-wrap">
+    <div class="activation-wrap">
         <div class="m-card m-pr m-topbg">
             <img src="/static/img/vipv.png" class="m-logo" alt="">
             <div class="m-tip-box">
