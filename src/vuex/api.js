@@ -1,4 +1,7 @@
 import * as data from '../data/data.js'
+import request from '../utils/request.js'
+
+const baseUrl = process.env.NODE_ENV == 'development'? '/api' : ``;
 
 export function getArticles(){
 	return new Promise(function(resolve, reject) {
@@ -65,12 +68,17 @@ export function getComments(){
 	})
 }
 
-export function getShop(){
+export function getShop(params = {}){
 	return new Promise(function(resolve,reject){
 		setTimeout(function(){
 	        resolve(data.shop);
 	    }, 1000)
 	})
+	// return request.get(baseUrl + '/index/get',{
+	// 	params: {
+	//       ...params
+	//     }
+	// })
 }
 
 export function getShopBanner(){

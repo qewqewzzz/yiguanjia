@@ -23,10 +23,10 @@
 
 		<view-box class="z-content">
 			<div class="life-index-banner life-pr">
-				<!-- <swiper
+				<swiper
 					:list="shopBanner">
-				</swiper> -->
-				<img src="/static/img/article-more.jpg" class="" alt="">
+				</swiper>
+				<!-- <img src="/static/img/article-more.jpg" class="" alt=""> -->
 				<div style="padding-bottom:10px;">
 					<div style="display:inline-block;margin-left:10px;font-size:14px;">
 				    	<img slot="icon" class="m-bugle" style="display:inline-block;margin-right:5px;" src="/static/img/bugle.png">
@@ -120,10 +120,12 @@ export default {
 	data() {
 		return {
 			// shop: shop,
-			shopBanner: shopBanner,
-			shopCat: shopCat,
+			shopBanner: shop.banners,
+			shopCat: shop.icons,
+			shopMessage: shop.messages,
 			floor1: floor1,
-			recommendGoods: recommendGoods
+			specials: shop.onSaleProducts,
+			recommendGoods: recommendGoods,
 		}
 	},
 	created(){

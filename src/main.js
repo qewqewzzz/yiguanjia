@@ -6,7 +6,9 @@ import App from './App'
 import routes from './routers.js'
 import store from './vuex/index.js'
 import * as types from './vuex/mutation-types'
+import { AjaxPlugin } from 'vux'
 
+Vue.use(AjaxPlugin)
 Vue.use(VueRouter)
 Vue.use(Vuex)
 

@@ -29,6 +29,7 @@ const getters = {
 // mutations
 const mutations = {
 	[types.UPDATE_SHOP] (state, payload) {
+	  state.shop = { ...payload.shop }
 	  state.shop.title = payload.shop.title
 	  state.shop.logo = payload.shop.logo
 	}
@@ -38,8 +39,9 @@ const mutations = {
 const actions = {
 	async initShop({commit, state}) {
 		let shop = await api.getShop()
+		console.log(shop)
 		commit({
-			type: types.UPDATE_SHOP, 
+			type: types.UPDATE_SHOP,
 			shop
 		})
 	},

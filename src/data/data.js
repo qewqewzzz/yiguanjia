@@ -7,8 +7,85 @@ export const shop = {
 	// 	title: '长按二维码分享',
 	// 	qrcode: '/static/img/good-default.jpg'
 	// }
+	banners: [
+		{
+			url: 'javascript:',
+			img: '/static/img/article-head.jpg',
+			title: '送你一辆车'
+		},
+		{
+			url: 'javascript:',
+			img: '/static/img/article-head.jpg',
+			title: '送你一辆车'
+		}
+	],
+	messages: ['1111111', '2222222'],
+	icons: [
+		{
+			id: 'member',
+			img: '/static/img/member.png',
+			text: '会员申请',
+			link: 'vipApply',
+		},
+		{
+			id: 'active',
+			img: '/static/img/active.png',
+			text: '会员激活',
+			link: 'vipActivation',
+		},
+		{
+			id: 'duty',
+			img: '/static/img/duty.png',
+			text: '会员职责'
+		},
+		{
+			id: 'gift',
+			img: '/static/img/gift.png',
+			text: '礼券转让',
+			link: 'couponGive',
+		},
+	],
+	onSaleProducts: [
+		{
+			id: 'a',
+			img: '/static/img/article-default.png',
+			title: '发现生活中的美',
+		},
+		{
+			id: 'b',
+			img: '/static/img/article-default.png',
+			title: '发现生活中的美',
+		},
+		{
+			img: '/static/img/article-default.png',
+			title: '发现生活中的美',
+		},
+		{
+			img: '/static/img/article-default.png',
+			title: '发现生活中的美',
+		},
+	],
+	groomProducts: [
+		{
+			id: 'a',
+			img: '/static/img/article-default.png',
+			title: '发现生活中的美',
+		},
+		{
+			id: 'b',
+			img: '/static/img/article-default.png',
+			title: '发现生活中的美',
+		},
+		{
+			img: '/static/img/article-default.png',
+			title: '发现生活中的美',
+		},
+		{
+			img: '/static/img/article-default.png',
+			title: '发现生活中的美',
+		},
+	],
 }
-
 // shop banner
 export const shopBanner = [
 	{
