@@ -3,9 +3,9 @@
         <div class="m-card m-pr m-topbg">
             <img src="/static/img/vipv.png" class="m-logo" alt="">
             <div class="m-tip-box">
-                <p class="m-tip1">会员等级：暂无会员</p>
-                <p class="m-tip2">距离下一级还差：XXX元</p>
-                <p class="m-tip3">购买会员：</p>
+                <p class="m-tip1">会员等级：VIP{{vipType}}</p>
+                <p class="m-tip2">距离下一级还差：{{diﬀMoney}}元</p>
+                <p class="m-tip3">购买会员：VIP{{checkerVIP}}</p>
                 <p class="m-tip4">确定需购买的等级后，请联系客服</p>
             </div>
         </div>
@@ -15,26 +15,28 @@
                 default-item-class="demo5-item"
                 selected-item-class="demo5-item-selected"
                 class="checker-box"
+                @on-change="fetchActivation()"
                 >
-
-                <checker-item v-for="i in [1, 2]" :key="i" :value="i">￥{{i*300}}</checker-item>
-                <checker-item style="margin-top: 30px;" v-for="i in [3, 4]" :key="i" :value="i">￥{{i*300}}</checker-item>
+                <checker-item v-for="i in [1, 2]" :key="i" :value="i">VIP{{i}}</checker-item>
+                <checker-item style="margin-top: 30px;" v-for="i in [3, 4]" :key="i" :value="i">VIP{{i}}</checker-item>
             </checker>
         </div>
         <div class="m-card">
-            <p style="font-size: 12px; color: #C42632;">审核通过后获取50W的洗护券</p>
+            <p style="font-size: 12px; color: #C42632;">审核通过后获取{{passAmount}}的洗护券</p>
         </div>
         <group class="z-nofixed-fullbtn">
-            <router-link
+            <!-- <router-link
                 :to="{
                     name: 'index',
-                }">
-                <x-button
-                    :class="['m-btn', 'm-loginBtn']"
-                    >
-                    联系客服
-                </x-button>
-            </router-link>
+                }"> -->
+                <a :href="'tel:' + serverNo">
+                    <x-button
+                        :class="['m-btn', 'm-activationBtn']"
+                        >
+                        联系客服
+                    </x-button>
+                </a>
+            <!-- </router-link> -->
         </group>
     </div>
 </template>
@@ -63,7 +65,31 @@ export default {
     data() {
         return {
             userInfo: userSettings,
-            checkerVIP: 1
+            checkerVIP: 1,
+            vipType: 1,
+            diﬀMoney: 2,
+            serverNo: 3,
+            passAmount: 4,
+        }
+    },
+    created(){
+        this.fetchActivation()
+    },
+    computed: {
+        vipActivation(){
+            return this.$store.getters.vipActivation
+        }
+    },
+    methods: {
+        fetchActivation() {
+            this.$store.dispatch('fetchActivation', {
+                vipType: this.checkerVIP
+            }).then(() => {
+                this.vipType = this.vipActivation.vipType
+                this.diﬀMoney = this.vipActivation.diﬀMoney
+                this.serverNo = this.vipActivation.serverNo
+                this.passAmount = this.vipActivation.passAmount
+            })
         }
     }
 }

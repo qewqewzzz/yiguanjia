@@ -12,10 +12,10 @@
 				</router-link>
 			</div> -->
 			<div class="like">
-				<span 
+				<span
 					class="zui-icon"
-					:class="isLike 
-						? 'zui-icon-follow-solid active' 
+					:class="isLike
+						? 'zui-icon-follow-solid active'
 						: 'zui-icon-follow-hollow'"
 					@click="likeHandler($event)">
 				</span>
@@ -28,24 +28,24 @@
                     }">
                 </router-link>
             </div>
-			<div 
+			<div
 				class="addcart"
 				@click="toggerSpeciPopup(1)">
 				加入购物车
 			</div>
-			<div 
+			<div
 				class="buynow"
 				@click="toggerSpeciPopup(2)">
 				立即购买
 			</div>
 		</div>
-		
-		<swiper 
-			class="a" 
+
+		<swiper
+			class="a"
 			:aspect-ratio="1/1"
 			dots-position="center">
-			<swiper-item 
-				v-for="item in good.banners">
+			<swiper-item
+				v-for="item in good.details">
 				<img :src="item">
 			</swiper-item>
 		</swiper>
@@ -55,29 +55,29 @@
 				<div class="params price">￥{{good.price}}</div>
 
 				<div class="params">已售{{good.soleNum}}</div>
-				
+
 				<div class="params">库存{{good.maxInventory}}件</div>
 			</div>-->
             <div class="m-center">￥<span class="m-price">{{good.price}}</span></div>
-            <div class="m-center"><span class="m-tag">爆款</span></div>
-            <div class="m-center"><del class="m-price-del">￥{{good.price}}</del></div>
+            <div class="m-center"><span class="m-tag">{{good.isTop && '爆款'}}</span></div>
+            <div class="m-center"><del class="m-price-del">￥{{good.markPrice}}</del></div>
             <div class="title z-ellipsis-2">{{good.title}}</div>
             <div class="m-center"><img class="m-share" src="/static/img/mshare.png" alt=""></div>
 		</div>
-		
+
 		<div class="good-detail-specification">
-			<cell 
+			<cell
 				class="z-cell-item"
-				:title="'参数'" 
+				:title="'参数'"
                 :value="'包包品牌 皮质'"
-				is-link 
+				is-link
 				@click.native="toggerSpeciPopup(0)">
 			</cell>
 		</div>
 
 		<div class="good-detail-brand" v-if="false">
 			<div
-				v-if="good.brand" 
+				v-if="good.brand"
 				class="gd-brand-head">
 				<img :src="good.brand.logo" alt="">
 				<div class="gd-brand-desc">
@@ -89,8 +89,8 @@
 						:share="kefu">
 					</share-popup>
 				</div>
-			</div>	
-			
+			</div>
+
 			<div class="gd-brand-foot">
 				<div class="server">
 					<div class="share-wrap">
@@ -118,8 +118,8 @@
 		<div class="good-detail-comment">
 			<div class="head">
 				评价
-				<span class="comment-num">({{good.commentsLength}}人评价)</span>
-				<router-link 
+				<span class="comment-num">({{good.assess.length}}人评价)</span>
+				<router-link
 					class="comment-all"
 					:to="{
 						name: 'commentList'
@@ -127,9 +127,9 @@
 					查看全部
 				</router-link>
 			</div>
-			<comment-card 
+			<comment-card
 				:type="'part'"
-				v-for="item in good.commentsPart"
+				v-for="item in good.assess"
 				:comment="item">
 			</comment-card>
 		</div>
@@ -139,10 +139,10 @@
             <div class="content" v-html="good.content"></div>
         </div>
 
-		<popup 
-			v-model="show" 
-			height="400px" 
-			@on-hide="log('hide')" 
+		<popup
+			v-model="show"
+			height="400px"
+			@on-hide="log('hide')"
 			@on-show="log('show')"
 			@on-first-show="resetScroller">
 			<div class="good-params-popup-wrap">
@@ -155,24 +155,24 @@
 						<span class="inventory">(库存{{good.maxInventory}}件)</span>
 					</div>
 				</div>
-				<scroller 
+				<scroller
 					height="260px"
-					lock-x 
+					lock-x
 					ref="scroller">
 					<div class="body">
-						<div 
+						<div
 							class="param-item"
 							v-for="(item,pIndex) in good.params">
-							<good-param 
-								:item="item" 
+							<good-param
+								:item="item"
 								@paramChange="paramChange" />
 						</div>
 						<div class="param-item">
-							<x-number 
+							<x-number
 								class="add-num"
 								:title="'数量'"
-								:value="1" 
-								:min="1" 
+								:value="1"
+								:min="1"
 								:step="1"
 								width="30px">
 							</x-number>
@@ -180,19 +180,19 @@
 					</div>
 				</scroller>
 				<div class="foot">
-					<div 
-						class="btn" 
+					<div
+						class="btn"
 						v-show="btnType === 0">
 						<div class="left">加入购物车</div>
 						<div class="right">立即购买</div>
 					</div>
-					<div 
-						class="btn" 
+					<div
+						class="btn"
 						v-show="btnType === 1">
 						加入购物车
 					</div>
-					<router-link 
-						class="btn" 
+					<router-link
+						class="btn"
 						@click.native="handleBuy"
 						v-show="btnType === 2"
 						:to="{
@@ -263,7 +263,7 @@ export default {
 	created() {
 		this.$store.dispatch({
 			type: 'getGoodDetail',
-			id: 'xx'
+			id: this.$route.params.id
 		})
 	},
 	methods: {
@@ -287,7 +287,7 @@ export default {
 		},
 		toggerSpeciPopup(type) {
 			switch(type){
-				case 0: 
+				case 0:
 				this.btnType = 0
 				this.show = !this.show
 				break;
@@ -306,11 +306,11 @@ export default {
 			var pos = this.selectParams.indexOf(param.name)
 			console.log(pos)
 			if(pos > -1){
-				this.selectParams[pos + 1] = param.val 
+				this.selectParams[pos + 1] = param.val
 			}else{
 				this.selectParams.push(param.name, param.val)
 			}
-			 
+
 			console.log(this.selectParams)
 		},
 		handleBuy() {

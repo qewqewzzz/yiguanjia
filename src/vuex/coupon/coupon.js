@@ -19,7 +19,10 @@ const state = {
 	coupons: [],
 	unusefullCoupon: [],
 	timeoutCoupon: [],
-	usefullCoupon: []
+	usefullCoupon: [],
+	userGive: {
+		nickName: 1,
+	},
 }
 
 const getters = {
@@ -27,7 +30,8 @@ const getters = {
 	coupons: state => state.coupons,
 	unusefullCoupon: state => state.unusefullCoupon,
 	timeoutCoupon: state => state.timeoutCoupon,
-	usefullCoupon: state => state.usefullCoupon
+	usefullCoupon: state => state.usefullCoupon,
+	userGive: state => state.userGive
 }
 
 const mutations = {
@@ -39,6 +43,12 @@ const mutations = {
 	},
 	[types.UPDATE_USEFULLCOUPON] (state, payload) {
 		state.coupons = payload.usefullCoupon
+	},
+	[types.GET_USERINFO] (state, payload) {
+		state.userGive = payload.userGive
+	},
+	[types.POST_COUPONGIVE] (state, payload) {
+
 	}
 }
 
@@ -48,7 +58,7 @@ const actions = {
 		let timeoutCoupon = await api.getTimeoutCoupons()
 		dispatch('hideLoading')
 		commit({
-			type: types.UPDATE_TIMEOUTCOUPON, 
+			type: types.UPDATE_TIMEOUTCOUPON,
 			timeoutCoupon
 		})
 	},
@@ -58,7 +68,7 @@ const actions = {
 		let unusefullCoupon = await api.getUnusefullCoupons()
 		dispatch('hideLoading')
 		commit({
-			type: types.UPDATE_UNUSEFULLCOUPON, 
+			type: types.UPDATE_UNUSEFULLCOUPON,
 			unusefullCoupon
 		})
 	},
@@ -68,8 +78,28 @@ const actions = {
 		let usefullCoupon = await api.getUsefullCoupons()
 		dispatch('hideLoading')
 		commit({
-			type: types.UPDATE_USEFULLCOUPON, 
+			type: types.UPDATE_USEFULLCOUPON,
 			usefullCoupon
+		})
+	},
+
+	async fetchUserMen({dispatch, commit, state}, payload) {
+		dispatch('showLoading')
+		let res = await api.getUserMen(payload)
+		console.log(res)
+		dispatch('hideLoading')
+		commit({
+			type: types.GET_USERINFO,
+			userGive: res
+		})
+	},
+
+	async fetchBalanceTrans({dispatch, commit, state}, payload) {
+		dispatch('showLoading')
+		let res = await api.postBalanceTrans(payload)
+		dispatch('hideLoading')
+		commit({
+			type: types.POST_COUPONGIVE,
 		})
 	},
 }

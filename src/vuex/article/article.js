@@ -37,38 +37,38 @@ const mutations = {
 
 
 const actions = {
-  async getArticles({dispatch,commit, state}) {
+  async getArticles({dispatch,commit, state}, payload) {
     dispatch('showLoading')
-    let articles = await api.getArticles()
-    let banners = await api.getBanners()
+    let articles = await api.getArticles(payload)
+    // let banners = await api.getBanners()
     dispatch('hideLoading')
+    // commit({
+    //   type: types.UPDATE_BANNERS,
+    //   banners
+    // })
     commit({
-      type: types.UPDATE_BANNERS,
-      banners
-    })
-    commit({
-      type: types.UPDATE_ARTICLES, 
+      type: types.UPDATE_ARTICLES,
       articles
     })
   },
   async getArticle({dispatch, commit, state}) {
     dispatch('showLoading')
     let article = await api.getArticle()
-    let recArtGoods = await api.getRecommendGoods()
-    let recArtArticles = await api.getRecommendArticles()
+    // let recArtGoods = await api.getRecommendGoods()
+    // let recArtArticles = await api.getRecommendArticles()
     dispatch('hideLoading')
     commit({
       type: types.UPDATE_ARTICLE,
-      article 
+      article
     })
-    commit({
-      type: types.UPDATE_RECGOODS,
-      recArtGoods 
-    })
-    commit({
-      type: types.UPDATE_RECARTICLES,
-      recArtArticles 
-    })
+    // commit({
+    //   type: types.UPDATE_RECGOODS,
+    //   recArtGoods
+    // })
+    // commit({
+    //   type: types.UPDATE_RECARTICLES,
+    //   recArtArticles
+    // })
   }
 }
 

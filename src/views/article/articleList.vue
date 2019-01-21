@@ -37,7 +37,8 @@ export default {
 	},
 	data() {
 		return {
-
+			pageNum: 1,
+			pageSize: 20
 		}
 	},
 	created(){
@@ -56,7 +57,10 @@ export default {
 	},
 	methods: {
 		initArticles(){
-			this.$store.dispatch('getArticles')
+			this.$store.dispatch('getArticles', {
+				index: this.pageNum,
+				size: this.pageSize
+			})
 		},
 
 	}

@@ -1,31 +1,36 @@
 <template>
     <div class="category">
-        <!-- <div class="search-box">
-            <search v-model="searchValue" position="absolute" auto-scroll-to-top top="0px" @on-cancel="onCancel" @on-submit="onSubmit" placeholder="请输入关键字" ref="search"></search>
-        </div> -->
-        <ul class="category-menu vux-1px-r">
-            <li v-for="(item,index) in menu"
+        <div class="search-box">
+            <router-link
+                :to="{
+                    name: 'searchResult'
+                }">
+                <search v-model="searchValue" align="left" style="text-align: left;" position="absolute" auto-scroll-to-top top="0px" @on-cancel="" @on-submit="" placeholder="请输入关键字"></search>
+            </router-link>
+        </div>
+        <ul class="category-menu">
+            <li v-for="(item,index) in categoryMenu"
                 :key="index"
                 class="menu-item"
-                :class="[currentIndex === index?'active':'']"
-                @click="switchCategory(index,item.id)">
+                :class="[currentIndex == index?'active':'']"
+                @click="switchCategory(index,item.categoryId)">
                 {{item.name}}
             </li>
         </ul>
         <div class="category-main">
             <div class="category-detail-box">
                 <div class="category-top"
-                     v-if="menu.length>0">
+                     v-if="categoryMenu">
                     <div class="category-title">
                         <h4>{{categoryTitle}}</h4>
                     </div>
                 </div>
                 <div class="category-list">
                     <div class="category-goods-items"
-                         v-for="(item,index) in list"
-                         @click="linktoDetail(item.id)"
+                         v-for="(item,index) in categoryList"
+                         @click="linktoDetail(item.productId)"
                          :key="index">
-                        <img :src="'/static/img/banner-life.png'"
+                        <img :src="item['main_img_url']"
                              alt=""
                              class="goods-image">
                         <div class="goods-name">{{item.name}}</div>
@@ -47,68 +52,93 @@ export default {
     },
     data() {
         return {
-            menu: [{"id":2,"name":"果味","topic_img_id":6,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-dryfruit.png"}},{"id":3,"name":"蔬菜","topic_img_id":5,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-vg.png"}},{"id":4,"name":"炒货","topic_img_id":7,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-fry-a.png"}},{"id":5,"name":"点心","topic_img_id":4,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-cake.png"}},{"id":6,"name":"粗茶","topic_img_id":8,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-tea.png"}},{"id":7,"name":"淡饭","topic_img_id":9,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-rice.png"}}],
-            list: [{"id":1,"name":"芹菜 半斤","price":"0.01","stock":998,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@1.png","img_id":13},{"id":7,"name":"泥蒿 半斤","price":"0.01","stock":998,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@2.png","img_id":68},{"id":16,"name":"西红柿 1斤","price":"0.01","stock":999,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@3.png","img_id":69},{"id":32,"name":"土豆 半斤","price":"0.01","stock":999,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@4.png","img_id":66},{"id":33,"name":"青椒 半斤","price":"0.01","stock":999,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@5.png","img_id":67}],
-            currentIndex: 0
+            menu: [],
+            list: [],
+            currentIndex: 0,
+            searchValue: ''
         }
     },
-    created() {
+    async created() {
+        await this.getData()
     },
     computed: {
         menuBanner() {
-            return this.menu[this.currentIndex].img.url
+            return this.categoryMenu[this.currentIndex].img.url
         },
         categoryTitle() {
-            return this.menu[this.currentIndex].name
-        }
+            return this.categoryMenu[this.currentIndex] && this.categoryMenu[this.currentIndex].name
+        },
+        categoryMenu() {
+            return this.$store.getters.categoryMenu
+        },
+        categoryList() {
+            return this.$store.getters.categoryList
+        },
+
     },
     methods: {
         switchCategory(index, id) {
             this.currentIndex = index
-            //this.getProduct(id)
+            this.getProduct(id)
         },
         linktoDetail(id) {
             this.$router.push({ name: 'searchResult', query: { id: id } })
         },
         async getData() {
-            let res = await this.getCategory()
-            this.menu = res.data.data.category
-            //this.getProduct(this.menu[0].id)
+            await this.getCategory()
+            await this.getProduct(this.categoryMenu[0].id)
         },
-        getCategory() {
-            //return this.$http
-            //.get('/category/all')
+        async getCategory() {
+            await this.$store.dispatch('fetchProductList',{
+
+            }).then(() => {
+                this.menu = this.categoryMenu
+            })
         },
-        getProduct(id) {
-            this.$http
-                .get(
-                    '/product/by_category',
-                {
-                    params: {
-                        id: id
-                    }
-                }
-                )
-                .then(res => {
-                    this.list = res.data.data.list
-                })
+        async getProduct(id) {
+            await this.$store.dispatch('fetchCatagroyList',{
+                categoryId: id
+            }).then(() => {
+                this.list = this.categoryList
+            })
         }
     }
 }
 </script>
-
-<style scoped lang="less">
-.search-box{
-    height: 44.4px;
+<style lang="less">
+.category {
+    .weui-search-bar {
+        background-color: #ffffff;
+    }
+    .weui-search-bar__label {
+        text-align: left;
+        z-index: -1;
+    }
+    .weui-search-bar__form {
+        background: #EFEFEF;
+    }
+    .weui-search-bar__box {
+        background: #EFEFEF;
+    }
 }
+</style>
+<style scoped lang="less">
 .category {
     height: 100%;
     display: flex;
     overflow: hidden;
+    background: #FFFFFF;
+    .search-box{
+        width: 100%;
+        position: absolute;
+    }
     .category-menu {
         width: 75px;
         flex: 0 0 75px;
         height: 100%;
+        margin-top: 44px;
+        background: #FFFFFF;
+        border-top: 10px solid #EFEFEF;
         .menu-item {
             height: 25px;
             padding: 10px 0;
@@ -116,13 +146,15 @@ export default {
             display: flex;
             align-items: center;
             justify-content: center;
-            border-left: 3px solid #fff;
+            border-left: 3px solid #F2F2F2;
+            background: #F2F2F2;
             &.active {
-                color: #ab956d;
-                border-color: #ab956d;
+                color: #EDA849;
+                border-color: #EDA849;
                 font-size: 15px;
                 // transform: scale(1.125);
                 transition: all linear 0.3s;
+                background: #FFFFFF;
             }
         }
     }
@@ -130,6 +162,8 @@ export default {
         flex: 1;
         height: 100%;
         transition: all 500ms ease-in-out;
+        margin-top: 44px;
+        border-top: 10px solid #EFEFEF;
         .category-detail-box {
             overflow-y: auto;
             padding: 0px;

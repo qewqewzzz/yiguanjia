@@ -1,6 +1,6 @@
 import Vue from 'vue'
 // import Vuex from 'vuex'
-var  Vuex = require('../../node_modules/vuex/dist/vuex.min.js') 
+var  Vuex = require('../../node_modules/vuex/dist/vuex.min.js')
 
 import base from './base/base'
 import article from './article/article'
@@ -12,6 +12,8 @@ import cat from './cat/cat.js'
 import comment from './comment/comment.js'
 import order from './order/order.js'
 import goodDetail from './goodDetail/goodDetail.js'
+import vip from './vip/vip.js'
+import category from './category/category.js'
 
 Vue.use(Vuex)
 
@@ -26,6 +28,8 @@ export default new Vuex.Store({
 		cat,
 		comment,
 		order,
-		goodDetail
+		goodDetail,
+		vip,
+		category
 	}
 })

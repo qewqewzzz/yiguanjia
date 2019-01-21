@@ -27,15 +27,28 @@
 					:list="shopBanner">
 				</swiper>
 				<!-- <img src="/static/img/article-more.jpg" class="" alt=""> -->
-				<div style="padding-bottom:10px;">
+				<div style="padding: 5px 0px;">
 					<div style="display:inline-block;margin-left:10px;font-size:14px;">
-				    	<img slot="icon" class="m-bugle" style="display:inline-block;margin-right:5px;" src="/static/img/bugle.png">
-				    	<span style="vertical-align: middle;">精彩资讯 西湖店盛大开,新老用户享七折</span>
+				    	<!-- <img slot="icon" class="m-bugle" style="display:inline-block;margin-right:5px;" src="/static/img/bugle.png"> -->
+				    	<!-- <span style="vertical-align: middle;">精彩资讯 西湖店盛大开,新老用户享七折</span> -->
+				    	<div style="display:inline-block;">
+						    <marquee direction="up" :interval="2000">
+						      	<marquee-item v-for="(item, index) in shopMessage" :key="index" @click.native="" class="align-middle">
+						      		<img class="m-bugle" style="display:inline-block;margin-right:5px;" src="/static/img/bugle.png">
+						      		<span style="vertical-align: middle;">hello world {{item}}</span>
+						      	</marquee-item>
+						    </marquee>
+				    	</div>
 					</div>
-					<div style="display:inline-block;margin-right:10px;font-size:14px;float:right;margin-top: 4px;">
-				    	<span style="vertical-align: middle;color:#B59744;">全部</span>
-				       	<img slot="icon" class="m-more" style="display:inline-block;margin-right:5px;" src="/static/img/more.png">
-					</div>
+					<router-link
+						:to="{
+							name: 'articleList'
+						}">
+						<div style="display:inline-block;margin-right:10px;font-size:14px;float:right;margin-top: 4px;">
+					    	<span style="vertical-align: middle;color:#B59744;">全部</span>
+					       	<img slot="icon" class="m-more" style="display:inline-block;margin-right:5px;" src="/static/img/more.png">
+						</div>
+					</router-link>
 				</div>
 				<div class="life-index-search">
 					<router-link
@@ -70,7 +83,7 @@
             <recommend
                 :type="'INDEXARTICLERECOMMEND'"
                 :recommendTitle="'特价商品'"
-                :recommendData="recommendGoods">
+                :recommendData="specials">
             </recommend>
 
 			<recommend
@@ -96,7 +109,7 @@ import EndingTip from '../../components/EndingTip.vue'
 import Recommend from '../../components/Recommend.vue'
 import ScrollerBox from '../../components/ScrollerBox.vue'
 import GoodGrid from '../../components/GoodGrid.vue'
-import {Swiper, SwiperItem, Popup, ViewBox, Cell, Group, XInput} from 'vux'
+import {Swiper, SwiperItem, Popup, ViewBox, Cell, Group, XInput, Marquee, MarqueeItem} from 'vux'
 
 const {mapGetters} = require('../../../node_modules/vuex/dist/vuex.min.js')
 
@@ -115,7 +128,9 @@ export default {
 		ViewBox,
 		Cell,
 		Group,
-		XInput
+		XInput,
+		Marquee,
+    	MarqueeItem
 	},
 	data() {
 		return {

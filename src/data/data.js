@@ -189,8 +189,29 @@ export const recommendGoods = [
 	}
 ]
 
-
-
+// vipActivation
+export const vipActivation = {
+	vipGrade: 1,
+    vipType: 2,
+    diﬀMoney: 333,
+    serverNo: 123,
+    passAmount: 50,
+}
+// userInfo
+export const userInfoGive = {
+	nickName: 123,
+    avatar: '/static/img/article-default.png',
+}
+// categoryMenu
+export const categoryMenu = [
+{"id":2,"name":"果味","topic_img_id":6,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-dryfruit.png"}, "categoryId": 1},
+{"id":3,"name":"蔬菜","topic_img_id":5,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-vg.png"}, "categoryId": 1},
+{"id":4,"name":"炒货","topic_img_id":7,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-fry-a.png"}, "categoryId": 1},
+{"id":5,"name":"点心","topic_img_id":4,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-cake.png"}, "categoryId": 1},
+{"id":6,"name":"粗茶","topic_img_id":8,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-tea.png"}, "categoryId": 1},
+{"id":7,"name":"淡饭","topic_img_id":9,"description":null,"img":{"url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/category-rice.png"}, "categoryId": 1}]
+// categoryList
+export const categoryList = [{"id":1,"name":"芹菜 半斤","price":"0.01","stock":998,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@1.png","img_id":13},{"id":7,"name":"泥蒿 半斤","price":"0.01","stock":998,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@2.png","img_id":68},{"id":16,"name":"西红柿 1斤","price":"0.01","stock":999,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@3.png","img_id":69},{"id":32,"name":"土豆 半斤","price":"0.01","stock":999,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@4.png","img_id":66},{"id":33,"name":"青椒 半斤","price":"0.01","stock":999,"main_img_url":"http://p2mvs0o8r.bkt.clouddn.com/blog/pretty-vendor/product-vg@5.png","img_id":67}]
 /********** article **********/
 // articls
 export const articles = [
@@ -199,12 +220,20 @@ export const articles = [
 			img: '/static/img/article-default.png',
 			title: '发现生活中的美',
 			subtitle: '发现生活中的美发现生活中的美。',
+			imgUrl: '/static/img/article-default.png',
+			shotContent: '发现生活中的美发现生活中的美。',
+			viewNum: 1234,
+			newsId: 12,
 		},
 		{
 			id: 'b',
 			img: '/static/img/article-default.png',
 			title: '发现生活中的美',
 			subtitle: '发现生活中的美发现生活中的美。',
+			imgUrl: '/static/img/article-default.png',
+			shotContent: '发现生活中的美发现生活中的美。',
+			viewNum: 4321,
+			newsId: 21,
 		}
 ]
 
@@ -229,7 +258,9 @@ export const article = {
 	author: '老王',
 	read: '222',
 	like: '333',
-	content: '文章极物商城文章极物商城文章极物商城文章极物商城文章馆文章xx'
+	content: '文章极物商城文章极物商城文章极物商城文章极物商城文章馆文章xx',
+	imgUrls: ['/static/img/article-head.jpg'],
+	viewNum: 999,
 }
 
 // article recommend
@@ -449,7 +480,9 @@ export const commentPost = {
 /*********** good detail ***********/
 export const goodDetail = {
 	title: 'xx茶具茶具好美xx茶具茶具好美xx茶具茶具好美xx茶具茶具好美xx茶具茶具好美品茶具茶具好美',
+	markPrice: '399',
 	price: '299',
+	detailList: [],
 	soleNum: '888',
 	likeNum: '333',
 	brand: {
@@ -457,7 +490,7 @@ export const goodDetail = {
 		title: '翼管家',
 		subtitle: '生活态度'
 	},
-	banners: [
+	details: [
 		'/static/img/banner-life.png',
 		'/static/img/banner-life.png',
 		'/static/img/banner-life.png',
@@ -481,7 +514,8 @@ export const goodDetail = {
 		}
 	],
 	commentsLength: '200',
-	commentsPart: [
+	isCollect: 1,
+	assess: [
 		{
 			userLogo: '/static/img/life-index-logo.png',
 			userName: '张**飞',

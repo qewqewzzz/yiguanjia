@@ -3,14 +3,14 @@
 		<view-box >
 			<div class="article-detail-wrap">
 				<div class="article-detail-logo">
-					<img src="/static/img/article-default.png" height="174" width="1076" alt="">
+					<img v-for="(item, index) in article.imgUrls" :key="index" :src="item" height="174" width="1076" alt="">
 				</div>
 				<div class="article-detail-head">
 					<div class="title">
-						{{'资讯标题'}}
+						{{article.title}}
 						<span class="check">
-							<img src="/static/img/call.png" class="check-img" width="50" height="50" alt="">
-							10000
+							<img src="/static/img/eye.png" class="check-img" width="50" height="50" alt="">
+							{{article.viewNum}}
 						</span>
 					</div>
 					<div class="info">
@@ -98,6 +98,7 @@ export default {
 		}
 	},
 	created() {
+		console.log(111)
 		this.initArticle()
 	},
 	computed: {
@@ -124,7 +125,9 @@ export default {
 			}
 		},
 		initArticle(){
-			this.$store.dispatch('getArticle')
+			this.$store.dispatch('getArticle', {
+				newsId: this.$route.params.newsId
+			})
 		}
 	}
 }

@@ -3,11 +3,17 @@ import request from '../utils/request.js'
 
 const baseUrl = process.env.NODE_ENV == 'development'? '/api' : ``;
 
-export function getArticles(){
+// 资讯列表
+export function getArticles(params = {}){
 	return new Promise(function(resolve, reject) {
 		setTimeout(function(){
 	        resolve(data.articles);
 	    }, 1000)
+	})
+	return request.get(baseUrl + '/news/list',{
+		params: {
+	      ...params
+	    }
 	})
 }
 
@@ -19,11 +25,17 @@ export function getBanners(){
 	})
 }
 
-export function getArticle(){
+// 资讯详情
+export function getArticle(params = {}){
 	return new Promise(function(resolve, reject) {
 		setTimeout(function(){
 	        resolve(data.article);
 	    }, 1000)
+	})
+	return request.get(baseUrl + '/news/get',{
+		params: {
+	      ...params
+	    }
 	})
 }
 
@@ -68,17 +80,88 @@ export function getComments(){
 	})
 }
 
+// 首页
 export function getShop(params = {}){
 	return new Promise(function(resolve,reject){
 		setTimeout(function(){
 	        resolve(data.shop);
 	    }, 1000)
 	})
-	// return request.get(baseUrl + '/index/get',{
-	// 	params: {
-	//       ...params
-	//     }
-	// })
+	return request.get(baseUrl + '/index/get',{
+		params: {
+	      ...params
+	    }
+	})
+}
+
+// 会员申请
+export function postUserMen(params = {}){
+	return request.post(baseUrl + '/user/men/put',{
+	    ...params
+	})
+}
+
+// 会员激活
+export function getUserMenActivity(params = {}){
+	return new Promise(function(resolve,reject){
+		setTimeout(function(){
+	        resolve(data.vipActivation);
+	    }, 1000)
+	})
+	return request.get(baseUrl + '/user/men/activity/get',{
+	    params: {
+	      ...params
+	    }
+	})
+}
+
+// 获取会员信息
+export function getUserMen(params = {}){
+	return new Promise(function(resolve,reject){
+		setTimeout(function(){
+	        resolve(data.userInfoGive);
+	    }, 1000)
+	})
+	return request.get(baseUrl + '/user/mem/get',{
+	    params: {
+	      ...params
+	    }
+	})
+}
+
+// 礼券转让
+export function postBalanceTrans(params = {}){
+	return request.post(baseUrl + '/balance/trans/put',{
+	    ...params
+	})
+}
+
+// 产品列表
+export function getProductList(params = {}){
+	return new Promise(function(resolve,reject){
+		setTimeout(function(){
+	        resolve(data.categoryMenu);
+	    }, 1000)
+	})
+	return request.get(baseUrl + '/product/list',{
+	    params: {
+	      ...params
+	    }
+	})
+}
+
+// 类目列表
+export function getCatagroyList(params = {}){
+	return new Promise(function(resolve,reject){
+		setTimeout(function(){
+	        resolve(data.categoryList);
+	    }, 1000)
+	})
+	return request.get(baseUrl + '/catagroy/list',{
+	    params: {
+	      ...params
+	    }
+	})
 }
 
 export function getShopBanner(){
@@ -210,6 +293,7 @@ export function postComment(comments) {
 	})
 }
 
+// 商品详情
 export function getGoodDetail(id) {
 	return new Promise(function(resolve, reject){
 		setTimeout(function() {

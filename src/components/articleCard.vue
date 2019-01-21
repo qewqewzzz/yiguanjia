@@ -7,9 +7,9 @@
                 v-for="item in articleList"
                 :to="{
                     name: 'goodDetail',
-                    params: {id: item.id}
+                    params: {id: item.newsId,newsId: item.newsId}
                 }">
-                <img :src="item.img" alt="">
+                <img :src="item.imgUrl" alt="">
             </router-link>
         </div>
 		<div
@@ -19,19 +19,19 @@
 			<router-link
 				:to="{
 					name: 'articleDetail',
-					params: {id: item.id}
+					params: {id: item.newsId,newsId: item.newsId}
 				}">
-                <img :src="item.img" alt="">
+                <img :src="item.imgUrl" alt="">
 				<div class="footer">
 					<div class="title z-ellipsisi">
 						{{item.title}}
 					</div>
 					<div class="subtitle z-ellipsisi">
-						{{item.subtitle}}
+						{{item.shotContent}}
 					</div>
 					<div class="m-other z-ellipsisi">
 						<img src="/static/img/eye.png" class="check-img" width="50" height="50" alt="">
-						{{10000}}
+						{{item.viewNum}}
 						<span class="more">查看更多>></span>
 					</div>
 				</div>
