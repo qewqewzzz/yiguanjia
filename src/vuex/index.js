@@ -14,6 +14,7 @@ import order from './order/order.js'
 import goodDetail from './goodDetail/goodDetail.js'
 import vip from './vip/vip.js'
 import category from './category/category.js'
+import login from './login/login.js'
 
 Vue.use(Vuex)
 
@@ -30,6 +31,7 @@ export default new Vuex.Store({
 		order,
 		goodDetail,
 		vip,
-		category
+		category,
+		login,
 	}
 })
