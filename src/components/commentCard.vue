@@ -7,16 +7,16 @@
 			<span class="right-tip">{{comment.createdAt}}</span>
 		</div>
 		<div class="body">
-			<div 
+			<div
 				class="comment-score"
 				>
 				商品描述:
-				<rater 
-					v-model="comment.goodScore" 
+				<rater
+					v-model="comment.goodScore"
 					:value="0"
-					slot="value" 
-					star="❤" 
-					active-color="#ef7a5d" 
+					slot="value"
+					star="❤"
+					active-color="#ef7a5d"
 					:margin="4"
 					:fontSize="18"
 					disabled>

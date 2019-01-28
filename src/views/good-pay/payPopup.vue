@@ -1,11 +1,11 @@
 <template>
 	<div class="pay-popup-wrap">
-		<div 
+		<div
 			class="pay-popup-head"
 			v-show="type==='coupon'">
 			优惠券选择
 		</div>
-		<div 
+		<div
 			class="pay-popup-head"
 			v-show="type==='address'">
 			收货地址选择
@@ -16,16 +16,16 @@
 				}">管理
 			</router-link>
 		</div>
-		<scroller 
+		<scroller
 			height="210px"
-			lock-x 
+			lock-x
 			ref="scroller">
-			<div 
+			<div
 				class="pay-popup-body"
 				v-show="type==='coupon'">
 				<checker
 					v-model="selectData"
-					default-item-class="pp-coupon-item-detault" 
+					default-item-class="pp-coupon-item-detault"
 					selected-item-class="pp-coupon-item-selected">
 					<checker-item
 						v-for="item in popupData"
@@ -38,12 +38,12 @@
 					</checker-item>
 				</checker>
 			</div>
-			<div 
+			<div
 				class="pay-popup-body"
 				v-show="type==='address'">
 				<checker
 					v-model="selectData"
-					default-item-class="pp-address-item-detault" 
+					default-item-class="pp-address-item-detault"
 					selected-item-class="pp-address-item-selected">
 					<checker-item
 						v-for="item in popupData"
@@ -52,7 +52,7 @@
 							<span>{{item.name}}</span>
 							<span>{{item.tel}}</span>
 							<div>
-								<span 
+								<span
 									class="z-text-color-main"
 									v-if="item.defaultAddress === 1">
 									默认地址:
@@ -70,14 +70,14 @@
 	</div>
 </template>
 
-<script> 
+<script>
 	import {Scroller, Checker, CheckerItem} from 'vux'
 
 	export default {
 		props: ['popupData', 'type'],
 		components: {
-			Scroller, 
-			Checker, 
+			Scroller,
+			Checker,
 			CheckerItem
 		},
 		data(){

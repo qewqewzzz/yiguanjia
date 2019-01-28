@@ -48,20 +48,14 @@ export const shop = {
 	onSaleProducts: [
 		{
 			id: 'a',
-			img: '/static/img/article-default.png',
+			newsId: 'a',
+			imgUrl: '/static/img/article-default.png',
 			title: '发现生活中的美',
 		},
 		{
 			id: 'b',
-			img: '/static/img/article-default.png',
-			title: '发现生活中的美',
-		},
-		{
-			img: '/static/img/article-default.png',
-			title: '发现生活中的美',
-		},
-		{
-			img: '/static/img/article-default.png',
+			newsId: 'a',
+			imgUrl: '/static/img/article-default.png',
 			title: '发现生活中的美',
 		},
 	],
@@ -70,19 +64,23 @@ export const shop = {
 			id: 'a',
 			img: '/static/img/article-default.png',
 			title: '发现生活中的美',
+			price: '998.00'
 		},
 		{
 			id: 'b',
 			img: '/static/img/article-default.png',
 			title: '发现生活中的美',
+			price: '998.00'
 		},
 		{
 			img: '/static/img/article-default.png',
 			title: '发现生活中的美',
+			price: '998.00'
 		},
 		{
 			img: '/static/img/article-default.png',
 			title: '发现生活中的美',
+			price: '998.00'
 		},
 	],
 }
@@ -530,7 +528,9 @@ export const goodDetail = {
 			goodScore: 5,
 			content: '完美的和押金啊分成三大发生多次的萨芬的发生打发十分撒发生撒旦法非官方大哥'
 		}
-	]
+	],
+	isTop: true,
+	id: 'a',
 }
 
 /*********** good pay ***********/

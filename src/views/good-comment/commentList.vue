@@ -4,7 +4,7 @@
 			全部评论
 			<span class="num" v-show="!loading">{{comments.length}}人评论</span>
 		</div>
-	
+
 		<div class="comment-list-wrap" v-show="!loading">
 			<comment-card
 				:type="'all'"
@@ -27,6 +27,8 @@ export default{
 	data() {
 		return {
 			// comments: comments
+			pageNum: 1,
+			pageSize: 20,
 		}
 	},
 	created() {
@@ -42,7 +44,11 @@ export default{
 	},
 	methods: {
 		initComments() {
-			this.$store.dispatch('getComments')
+			this.$store.dispatch('getComments', {
+				index: this.pageNum,
+				size: this.pageSize,
+				productId: this.$route.params.id,
+			})
 		}
 	}
 }

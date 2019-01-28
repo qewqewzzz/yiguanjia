@@ -3,17 +3,18 @@
 		<div class="good-pay-bottombar">
 			<div class="sum-price">总计: ￥{{paySumAmount}}</div>
 			<div class="pill-submit-btn">
-				<router-link 
+				<router-link
 					class="btn"
+					@click.native="handleOrder"
 					:to="{
 						name: 'payFeedback'
 					}">提交订单
 				</router-link>
 			</div>
 		</div>
-		
+
 		<view-box>
-			<div 
+			<div
 				class="good-pay-address"
 				@click="selectAddress('address')">
 				<address-card
@@ -22,20 +23,20 @@
 					:tool="false"
 					:data="defaultAddress[0]">
 				</address-card>
-				<div 
+				<div
 					v-else
 					class="gp-address-empty">
 					请选择收货地址
-					<span 
+					<span
 						class="zui-icon zui-icon-arrow">
 					</span>
 				</div>
 			</div>
-			
+
 			<shop-card
 				v-for="shop in payPill"
 				:shop="shop">
-				<div 
+				<div
 					slot="body"
 					class="shop-card-body">
 					<good-list
@@ -44,19 +45,19 @@
 						:data="item">
 					</good-list>
 				</div>
-				<div 
+				<div
 					slot="foot"
 					class="shop-card-foot">
 					<div class="z-cell-item z-text-right">
 						<span>共{{2}}件</span>
 						合计￥<strong>{{shop.sum}}</strong>
 					</div>
-					<cell 
-						class="z-cell-item" 
+					<cell
+						class="z-cell-item"
 						:title="'优惠券'"
 						@click.native="selectCoupon('coupon',shop.id)"
 						is-link>
-						<span 
+						<span
 							class="right-tip">
 							{{couponTip}}
 						</span>
@@ -70,24 +71,24 @@
 
 			<div class="good-pay-guest-wap">
 				<div class="z-input-item">
-					<x-input 
-						title="发票信息" 
+					<x-input
+						title="发票信息"
 						placeholder="输入发票信息">
 					</x-input>
 				</div>
 				<div class="z-input-item">
-					<x-input 
-						title="留言信息" 
+					<x-input
+						title="留言信息"
 						placeholder="输入留言信息">
 					</x-input>
 				</div>
 			</div>
 		</view-box>
 
-		<popup 
-			v-model="showPopup" 
-			height="300px" 
-			@on-hide="log('hide')" 
+		<popup
+			v-model="showPopup"
+			height="300px"
+			@on-hide="log('hide')"
 			@on-show="log('show')"
 			@on-first-show="resetScroller">
 			<pay-popup
@@ -114,7 +115,7 @@ export default{
 		GoodList,
 		Cell,
 		ViewBox,
-		Popup, 
+		Popup,
 		Scroller,
 		Checklist,
 		XInput,
@@ -128,7 +129,8 @@ export default{
 			popupType: '',
 			couponTip: '无可用优惠券',
 			userAddress: userAddress,
-			payPill: payPill
+			payPill: payPill,
+			shopNum: 2,
 		}
 	},
 	computed: {
@@ -144,7 +146,7 @@ export default{
 		},
 		selectCoupon(type,id) {
 			this.popupType = type
-			this.showPopup = !this.showPopup 
+			this.showPopup = !this.showPopup
 			this.payPill.forEach(i => {
 				if(i.id === id){
 					console.log(i.coupon)
@@ -162,6 +164,19 @@ export default{
 		},
 		change (val) {
 		  console.log('change', val)
+		},
+		handleOrder () {
+			this.$store.dispatch('postOrder', {
+                productId: this.$route.params.id,
+                name: this.userAddress,
+                mobile: this.userAddress,
+                address: this.userAddress,
+                num: this.shopNum,
+            }).then(() => {
+                this.$router.push({
+                    name: 'index',
+                })
+            })
 		}
 	}
 }

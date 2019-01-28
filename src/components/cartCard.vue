@@ -1,9 +1,9 @@
 <template>
 	<div class="cart-card-wrap">
-		<div 
+		<div
 			@click="selectHandler"
 			class="cart-card-select">
-			<icon 
+			<icon
 				class="icon"
 				:type="selected ? 'success' : 'circle'">
 			</icon>
@@ -15,12 +15,12 @@
 				<div class="suptitle z-ellipsis-2">{{data.title}}</div>
 				<div class="subtitle">{{data.subInfo}}</div>
 				<div class="price">{{data.price}}</div>
-				<x-number 
+				<x-number
 					class="accumulator"
-					:title="''" 
-					v-model="num" 
+					:title="''"
+					v-model="num"
 					button-style="round"
-					@on-change="change" 
+					@on-change="change"
 					:step="1"
 					:value="1"
 					:min="0">
@@ -36,7 +36,7 @@ import {Icon, XNumber} from 'vux'
 export default {
 	props: ['data'],
 	components: {
-		Icon, 
+		Icon,
 		XNumber
 	},
 	data() {
@@ -68,7 +68,7 @@ export default {
 	top: 50%;
 	left: 0;
 	transform: translate3d(0,-50%,0);
-}	
+}
 .cart-card-wrap .cart-card-select .icon{
 	color: #ed7a5d;
 	font-size: 20px;
@@ -109,9 +109,9 @@ export default {
 .accumulator.weui-cell:before{
 	border: none;
 }
-.accumulator .vux-number-selector-sub, 
+.accumulator .vux-number-selector-sub,
 .accumulator .vux-number-selector-plus{
-	border-color: #ed7a5d; 
+	border-color: #ed7a5d;
 }
 .accumulator .vux-number-selector.vux-number-disabled{
 	border-color: #ccc;

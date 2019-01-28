@@ -32,11 +32,12 @@ const actions = {
 	async getGoodDetail({dispatch, commit, state}, payload){
 		let {id} = payload
 		dispatch('showLoading')
-		let good = await api.getGoodDetail(id)
+		let good = await api.getGoodDetail({productId: id})
 		dispatch('hideLoading')
 		commit({
 			type: types.GET_GOODDETAIL,
-			good
+			// good: good.data.data,
+			good: good,
 		})
 	}
 }

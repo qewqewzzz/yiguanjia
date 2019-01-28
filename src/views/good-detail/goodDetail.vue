@@ -118,11 +118,12 @@
 		<div class="good-detail-comment">
 			<div class="head">
 				评价
-				<span class="comment-num">({{good.assess.length}}人评价)</span>
+				<span class="comment-num">({{good.assess && good.assess.length}}人评价)</span>
 				<router-link
 					class="comment-all"
 					:to="{
-						name: 'commentList'
+						name: 'commentList',
+						params: {id: good.id}
 					}">
 					查看全部
 				</router-link>
@@ -184,7 +185,16 @@
 						class="btn"
 						v-show="btnType === 0">
 						<div class="left">加入购物车</div>
-						<div class="right">立即购买</div>
+						<div class="right">
+							<router-link
+								class="btn"
+								@click.native="handleBuy"
+								:to="{
+									name: 'goodPay'
+								}">
+								立即购买
+							</router-link>
+						</div>
 					</div>
 					<div
 						class="btn"
@@ -209,7 +219,7 @@
 </template>
 <script>
 require('./goodDetail.less')
-import {goodDetail} from '../../data/data.js'
+// import {goodDetail} from '../../data/data.js'
 
 import GoodParam from '../../components/goodparam.vue'
 import SharePopup from '../../components/sharePopup.vue'

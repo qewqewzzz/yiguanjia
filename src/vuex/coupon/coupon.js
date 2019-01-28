@@ -90,7 +90,7 @@ const actions = {
 		dispatch('hideLoading')
 		commit({
 			type: types.GET_USERINFO,
-			userGive: res
+			userGive: res.data.data,
 		})
 	},
 

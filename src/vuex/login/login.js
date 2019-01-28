@@ -3,41 +3,30 @@ import * as api from '../api.js'
 
 // state
 const state = {
-    vipActivation: {}
+    loginState: false,
 }
 
 // getter
 const getters = {
-    vipActivation: state => state.vipActivation,
+    loginState: state => state.loginState,
 }
 
 // mutations
 const mutations = {
-    [types.POST_APPLY] (state, payload) {
-
-    },
-    [types.POST_ACTIVATION] (state, payload) {
-      state.vipActivation = { ...payload.vipActivation }
+    [types.POST_LOGINTEL] (state, payload) {
+      state.loginState = payload.loginState
     }
 }
 
 // actions
 const actions = {
-    async fetchApply({dispatch, commit, state}, payload) {
+    async fetchLogin({dispatch, commit, state}, payload) {
         dispatch('showLoading')
-        let res = await api.postUserMen(payload)
+        let res = await api.postUserTelphone(payload)
         dispatch('hideLoading')
         commit({
-            type: types.POST_APPLY,
-        })
-    },
-    async fetchActivation({dispatch, commit, state}, payload) {
-        dispatch('showLoading')
-        let res = await api.getUserMenActivity(payload)
-        dispatch('hideLoading')
-        commit({
-            type: types.POST_ACTIVATION,
-            vipActivation: res,
+            type: types.POST_LOGINTEL,
+            loginState: true
         })
     },
 }

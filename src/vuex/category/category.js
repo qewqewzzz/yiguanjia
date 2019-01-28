@@ -31,7 +31,7 @@ const actions = {
         dispatch('hideLoading')
         commit({
             type: types.GET_PRODUCT,
-            categoryMenu: res
+            categoryMenu: res.data.data,
         })
     },
     async fetchCatagroyList({dispatch, commit, state}, payload) {
@@ -40,7 +40,7 @@ const actions = {
         dispatch('hideLoading')
         commit({
             type: types.GET_CATAGROY,
-            categoryList: res,
+            categoryList: res.data.data,
         })
     },
 }

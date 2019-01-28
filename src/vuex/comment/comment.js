@@ -33,14 +33,15 @@ const mutations = {
 }
 
 const actions = {
-	async getComments({dispatch, commit, state}) {
+	async getComments({dispatch, commit, state}, payload) {
 		dispatch('showLoading')
-		let comments = await api.getComments()
+		let comments = await api.getComments(payload)
 		dispatch('hideLoading')
 
 		commit({
 			type: types.UPDATE_COMMENTS,
-			comments
+			// comments: comments.data.data,
+			comments: comments,
 		})
 	},
 

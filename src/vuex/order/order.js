@@ -94,7 +94,7 @@ const actions = {
 	},
 
 	async getOrder({dispatch, commit, state}, payload){
-		let id = payload.id 
+		let id = payload.id
 		dispatch('showLoading')
 		let order = await api.getOrder(id)
 		dispatch('hideLoading')
@@ -102,6 +102,17 @@ const actions = {
 		commit({
 			type: types.UDPATE_ORDER,
 			order
+		})
+	},
+
+	async postOrder({dispatch, commit, state}, payload){
+		let id = payload.id
+		dispatch('showLoading')
+		let res = await api.postOrder(payload)
+		dispatch('hideLoading')
+
+		commit({
+			type: types.POST_ORDER,
 		})
 	}
 

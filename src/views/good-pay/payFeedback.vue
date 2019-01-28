@@ -13,7 +13,7 @@
 		<shop-card
 			v-for="shop in payPill.pillShop"
 			:shop="shop">
-			<div 
+			<div
 				slot="body"
 				class="shop-card-body collapse">
 				<good-list
@@ -43,21 +43,21 @@
 					</div>
 				</div>
 			</div>
-			<div 
-				slot="foot" 
+			<div
+				slot="foot"
 				class="shop-card-foot">
 				<div class="z-cell-item z-text-right">
 					<span>共{{2}}件</span>
 					合计￥<strong>{{shop.sum}}</strong>
 				</div>
-				<div 
-					class="z-cell-item" 
+				<div
+					class="z-cell-item"
 					v-if="shop.state === 0">
 					需支付
 					<span class="right-tip z-text-color-main">￥{{shop.needPay}}</span>
 				</div>
-				<div 
-					class="z-cell-item" 
+				<div
+					class="z-cell-item"
 					v-if="shop.state === 1">
 					已支付
 					<span class="right-tip z-text-color-main">￥{{shop.needPay}}</span>
@@ -71,7 +71,7 @@
 							class="state-btn"
 							>
 						</pay-way>
-						<span 
+						<span
 							v-if="shop.state === 1"
 							class="state-plain-btn">查看订单
 						</span>
@@ -79,8 +79,8 @@
 				</div>
 			</div>
 		</shop-card>
-		
-		<recommend 
+
+		<recommend
 			:type="'GRIDRECOMMEND'"
 			:recommendTitle="'商品推荐'"
 			:recommendData="goodList">
@@ -199,15 +199,15 @@ export default {
 					subInfo: '已售8888件',
 					price: '200.00'
 				},
-				
+
 			]
 		}
 	},
 	computed: {
-		
+
 	},
 	methods:{
-		
+
 	}
 }
 

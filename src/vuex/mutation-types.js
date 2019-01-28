@@ -51,3 +51,5 @@ export const POST_COUPONGIVE = 'POST_COUPONGIVE'
 // 分类
 export const GET_PRODUCT = 'GET_PRODUCT'
 export const GET_CATAGROY = 'GET_CATAGROY'
+//手机号绑定
+export const POST_LOGINTEL = 'POST_LOGINTEL'

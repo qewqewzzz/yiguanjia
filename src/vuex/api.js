@@ -5,11 +5,11 @@ const baseUrl = process.env.NODE_ENV == 'development'? '/api' : ``;
 
 // 资讯列表
 export function getArticles(params = {}){
-	return new Promise(function(resolve, reject) {
-		setTimeout(function(){
-	        resolve(data.articles);
-	    }, 1000)
-	})
+	// return new Promise(function(resolve, reject) {
+	// 	setTimeout(function(){
+	//         resolve(data.articles);
+	//     }, 1000)
+	// })
 	return request.get(baseUrl + '/news/list',{
 		params: {
 	      ...params
@@ -72,11 +72,31 @@ export function getCatResult(){
 	})
 }
 
-export function getComments(){
-	return new Promise(function(resolve, reject) {
-		setTimeout(function(){
-	        resolve(data.comments);
-	    }, 1000)
+// 评价列表
+export function getComments(params = {}){
+	// return new Promise(function(resolve, reject) {
+	// 	setTimeout(function(){
+	//         resolve(data.comments);
+	//     }, 1000)
+	// })
+	return request.get(baseUrl + '/assess/info',{
+		params: {
+	      ...params
+	    }
+	})
+}
+
+// 用户下单
+export function postOrder(params = {}){
+	return request.post(baseUrl + '/order/put',{
+	    ...params
+	})
+}
+
+// 手机号绑定
+export function postUserTelphone(params = {}){
+	return request.post(baseUrl + '/user/telphone/put',{
+	    ...params
 	})
 }
 
@@ -299,5 +319,10 @@ export function getGoodDetail(id) {
 		setTimeout(function() {
 			resolve(data.goodDetail)
 		}, 1000)
+	})
+	return request.get(baseUrl + '/product/get',{
+	    params: {
+	      ...params
+	    }
 	})
 }

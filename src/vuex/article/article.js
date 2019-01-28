@@ -48,7 +48,7 @@ const actions = {
     // })
     commit({
       type: types.UPDATE_ARTICLES,
-      articles
+      articles: articles.data.data,
     })
   },
   async getArticle({dispatch, commit, state}) {
@@ -59,7 +59,7 @@ const actions = {
     dispatch('hideLoading')
     commit({
       type: types.UPDATE_ARTICLE,
-      article
+      article: article.data.data,
     })
     // commit({
     //   type: types.UPDATE_RECGOODS,
