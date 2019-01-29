@@ -93,6 +93,59 @@ export function postOrder(params = {}){
 	})
 }
 
+// 加入购物车
+export function postShopcar(params = {}){
+	return request.post(baseUrl + '/shopcar/put',{
+	    ...params
+	})
+}
+
+// 删除购物车
+export function postShopcard(params = {}){
+	return request.post(baseUrl + '/shopcard/del',{
+	    ...params
+	})
+}
+
+// 清空购物车失效商品
+export function postShopcardLose(params = {}){
+	return request.post(baseUrl + '/shopcard/lose/del',{
+	    ...params
+	})
+}
+
+// 收藏商品
+export function postCollect(params = {}){
+	return request.post(baseUrl + '/collect/put',{
+	    ...params
+	})
+}
+
+// 收藏列表
+export function getCollectListt(params = {}){
+	return request.get(baseUrl + '/collect/list',{
+		params: {
+	      ...params
+	    }
+	})
+}
+
+// 删除收藏信息
+export function postCollectDel(params = {}){
+	return request.post(baseUrl + '/collect/del',{
+	    ...params
+	})
+}
+
+// 个人中心
+export function getUser(params = {}){
+	return request.get(baseUrl + '/user/get',{
+		params: {
+	      ...params
+	    }
+	})
+}
+
 // 手机号绑定
 export function postUserTelphone(params = {}){
 	return request.post(baseUrl + '/user/telphone/put',{

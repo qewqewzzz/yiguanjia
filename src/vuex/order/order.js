@@ -64,6 +64,9 @@ const mutations = {
 
 	[types.UDPATE_ORDER] (state, payload){
 		state.order = payload.order
+	},
+
+	[types.POST_ORDER] (state, payload){
 	}
 }
 
