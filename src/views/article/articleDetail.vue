@@ -98,7 +98,6 @@ export default {
 		}
 	},
 	created() {
-		console.log(111)
 		this.initArticle()
 	},
 	computed: {
@@ -126,7 +125,7 @@ export default {
 		},
 		initArticle(){
 			this.$store.dispatch('getArticle', {
-				newsId: this.$route.params.newsId
+				newsId: this.$route.params.id
 			})
 		}
 	}

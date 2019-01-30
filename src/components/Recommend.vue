@@ -5,8 +5,8 @@
 		</div>
 		<good-grid :data="recommendData"></good-grid>
 	</div>
-	
-	<div 
+
+	<div
 		v-else-if="type === 'GRIDRECOMMEND'"
 		class="grid-recommend-wrap">
 		<div class="grid-recommend-head">
@@ -16,8 +16,8 @@
 	</div>
 
 	<div v-else-if="type === 'ARTICLERECOMMEND'">
-		<div class="article-recommend-head"> 
-			—— {{recommendTitle}} —— 
+		<div class="article-recommend-head">
+			—— {{recommendTitle}} ——
 		</div>
 		<article-card :articleList="recommendData"></article-card>
 	</div>
@@ -28,19 +28,19 @@
         </div>
         <article-card :articleList="recommendData" :isFooter="true"></article-card>
     </div>
-	
+
 	<div v-else-if="type === 'ARTICLEGOODRECOMMEND'">
 		<div class="article-good-recommend-head">
-			—— {{recommendTitle}} —— 
+			—— {{recommendTitle}} ——
 		</div>
 		<div class="article-good-recommend-wrap" >
-			<good-list 
+			<good-list
 				v-for="item in recommendData"
 				:type="'SUBINFO'"
 				:data="item">
 			</good-list>
 		</div>
-		<router-link 
+		<router-link
 			class="article-good-recommend-foot"
 			:to="{
 				name: 'index'
@@ -62,7 +62,7 @@ export default {
 		GoodGrid,
 		ArticleCard
 	},
-}	
+}
 </script>
 <style>
 .grid-recommend-head,

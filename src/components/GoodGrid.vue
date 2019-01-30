@@ -6,13 +6,13 @@
 					name: 'goodDetail',
 					params: {id: item.id}
 				}">
-				<img :src="item.img"/>
+				<img :src="item.imgUrl"/>
 				<div class="info">
 					<div class="title z-ellipsis-2">
 						{{item.title}}
 					</div>
 					<div class="delprice z-ellipsis-2">
-						<del class="m-del-price">￥{{item.price}}</del>
+						<del class="m-del-price">￥{{item.marketPrice}}</del>
 					</div>
 					<div class="subtitle z-ellipsis-2">
 						￥{{item.price}}

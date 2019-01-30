@@ -51,9 +51,9 @@ const actions = {
       articles: articles.data.data,
     })
   },
-  async getArticle({dispatch, commit, state}) {
+  async getArticle({dispatch, commit, state}, payload) {
     dispatch('showLoading')
-    let article = await api.getArticle()
+    let article = await api.getArticle(payload)
     // let recArtGoods = await api.getRecommendGoods()
     // let recArtArticles = await api.getRecommendArticles()
     dispatch('hideLoading')

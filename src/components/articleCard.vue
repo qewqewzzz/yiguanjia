@@ -27,7 +27,7 @@
 						{{item.title}}
 					</div>
 					<div class="subtitle z-ellipsisi">
-						{{item.shotContent}}
+						{{item.shortContent}}
 					</div>
 					<div class="m-other z-ellipsisi">
 						<img src="/static/img/eye.png" class="check-img" width="50" height="50" alt="">

@@ -35,7 +35,7 @@
 						    <marquee direction="up" :interval="2000">
 						      	<marquee-item v-for="(item, index) in shopMessage" :key="index" @click.native="" class="align-middle">
 						      		<img class="m-bugle" style="display:inline-block;margin-right:5px;" src="/static/img/bugle.png">
-						      		<span style="vertical-align: middle;">hello world {{item}}</span>
+						      		<span style="vertical-align: middle;">{{item.title}}</span>
 						      	</marquee-item>
 						    </marquee>
 				    	</div>
@@ -154,7 +154,7 @@ export default {
 			return this.$store.getters.shop
 		},
 		shopBanner(){
-			return this.$store.getters.shop.banners
+			return this.$store.getters.shop.banners && this.$store.getters.shop.banners.map((item, index) => { item['img'] = item.imgUrl;return item;})
 		},
 		shopCat(){
 			return this.$store.getters.shop.icons

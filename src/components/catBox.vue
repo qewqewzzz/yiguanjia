@@ -13,8 +13,8 @@
 						name: item.link || 'login',
 						query: {tag: item.id}
 					}">
-					<img class="life-cat-item-img" :src="item.img" alt="">
-					<div>{{item.text}}</div>
+					<img class="life-cat-item-img" :src="item.imgUrl" alt="">
+					<div>{{item.targetUrl}}</div>
 				</router-link>
 			</flexbox-item>
 		</flexbox>

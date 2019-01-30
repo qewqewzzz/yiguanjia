@@ -42,8 +42,8 @@ const actions = {
 		console.log(shop)
 		commit({
 			type: types.UPDATE_SHOP,
-			// shop: shop.data.data,
-			shop: shop,
+			shop: shop.data.data,
+			// shop: shop,
 		})
 	},
 }
