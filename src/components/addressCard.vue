@@ -1,36 +1,36 @@
 <template>
 	<div class="address-card-wrap">
 		<div class="address-head">
-			<span 
-				class="zui-icon zui-icon-arrow" 
+			<span
+				class="zui-icon zui-icon-arrow"
 				v-if="link">
 			</span>
-			<span class="name">{{data.name}}</span>
-			<span class="tell">{{data.tel}}</span>
+			<span class="name">{{data.contactName}}</span>
+			<span class="tell">{{data.mobile}}</span>
 		</div>
 		<div class="address-body">
 			收货地址: {{data.address}}
 		</div>
 		<div class="address-foot" v-if="tool">
-			<div 
+			<div
 				class="left"
-				:class="selected ? 'active' : '' " 
+				:class="selected ? 'active' : '' "
 				@click="selectHandler">
-				<icon 
+				<icon
 					class="icon"
 					:type="selected ? 'success' : 'circle'">
 				</icon>
 				{{selected ? '默认地址' : '设为默认'}}
 			</div>
 			<div class="right">
-				<router-link 
+				<router-link
 					class="zui-icon zui-icon-article1"
 					:to="{
 						name: 'addressEdit',
 						params: {ad: data}
 					}">编辑
 				</router-link >
-				<span 
+				<span
 					class="zui-icon zui-icon-del"
 					@click="deleteHandler">删除</span>
 			</div>
@@ -51,7 +51,7 @@ export default {
 			default: function(){
 				return {}
 			}
-		}, 
+		},
 		tool:{
 			type: Boolean,
 			default: false
@@ -67,7 +67,7 @@ export default {
 	},
 	data() {
 		return {
-			
+
 		}
 	},
 	methods: {

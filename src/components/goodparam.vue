@@ -2,7 +2,7 @@
 	<div class="params-item">
 		<p>{{item.name}}</p>
 		<p>
-			<span 
+			<span
 				v-for="(i, index) in item.param"
 				:class="selected == index ? 'active' : ''"
 				@click="paramSelect(i, index)">
@@ -23,7 +23,7 @@
 		methods: {
 			paramSelect(val, index) {
 				this.selected = index
-				this.selectedText = val 
+				this.selectedText = val
 				this.$emit('paramChange', {name: this.item.name, val})
 				// this.$store.dispatch({
 				// 	type: 'selectParams',

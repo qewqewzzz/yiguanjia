@@ -326,11 +326,17 @@ export function deleteMyLikes(){
 	})
 }
 
-export function getAddress(){
-	return new Promise(function(resolve,reject){
-		setTimeout(function(){
-	        resolve(data.userAddress);
-	    }, 1000)
+// 获取收货地址
+export function getAddress(params = {}){
+	// return new Promise(function(resolve,reject){
+	// 	setTimeout(function(){
+	//         resolve(data.userAddress);
+	//     }, 1000)
+	// })
+	return request.get(baseUrl + '/address/list',{
+	    params: {
+	      ...params
+	    }
 	})
 }
 
@@ -342,11 +348,15 @@ export function deleteAddress(){
 	})
 }
 
-export function editAddress() {
-	return new Promise(function(resolve, reject){
-		setTimeout(function() {
-			resolve('ok')
-		}, 1000)
+// 新增地址
+export function editAddress(params = {}) {
+	// return new Promise(function(resolve, reject){
+	// 	setTimeout(function() {
+	// 		resolve('ok')
+	// 	}, 1000)
+	// })
+	return request.post(baseUrl + '/address/put',{
+	    ...params
 	})
 }
 

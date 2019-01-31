@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from 'vuex'
 // import store from '@/vuex/store.js'
 // import router from '../router'
 
@@ -60,4 +61,24 @@ import axios from 'axios'
 
 //     return Promise.reject(error);
 //   });
+
+// 请求拦截
+axios.interceptors.request.use(function (config) {
+    // 在发送请求之前做些什么
+    // store.commit('SET_LOADING',true);
+    // 如果有token,添加到请求报文 后台会根据该报文返回status
+    // if(store.state.login.token) {
+      config.headers['auth-token'] = `844339612074720710633384`;
+    // }
+
+    return config;
+
+  }, function (error) {
+    // 对请求错误做些什么
+    alert('网络错误,请稍后再试');
+
+    store.commit('SET_LOADING',false);
+
+    return Promise.reject(error);
+  });
 export default axios

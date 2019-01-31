@@ -168,10 +168,15 @@ export default{
 		handleOrder () {
 			this.$store.dispatch('postOrder', {
                 productId: this.$route.params.id,
-                name: this.userAddress,
-                mobile: this.userAddress,
-                address: this.userAddress,
+                contact: this.userAddress[0].name,
+                mobile: this.userAddress[0].tel,
+                address: this.userAddress[0].address,
                 num: this.shopNum,
+                province: '浙江',
+                city: '杭州',
+                cityArea: '余杭',
+                list: [{productId: 1, num: 1}]
+
             }).then(() => {
                 this.$router.push({
                     name: 'index',

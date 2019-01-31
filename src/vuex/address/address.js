@@ -38,11 +38,11 @@ const actions = {
 		dispatch('hideLoading')
 		commit({
 			type: types.GET_ADDRESS,
-			address
+			address: address.data.data.list
 		})
 	},
 	async deleteAddress({dispatch, state, commit}, payload){
-		let id = payload.id 
+		let id = payload.id
 		let index = payload.index
 
 		dispatch('showLoading')
@@ -59,7 +59,7 @@ const actions = {
 		let {address} = payload
 		console.log(payload)
 		dispatch('showLoading')
-		let msg = await api.editAddress()
+		let msg = await api.editAddress(payload.address)
 		dispatch('hideLoading')
 
 		commit({

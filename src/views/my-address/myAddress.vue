@@ -8,7 +8,7 @@
 			:text="'您还没创建过地址!'">
 		</empty-view>
 
-		<address-card 
+		<address-card
 			v-else
 			v-for="(item,index) in address"
 			@on-address-selected="selectAddress(index)"

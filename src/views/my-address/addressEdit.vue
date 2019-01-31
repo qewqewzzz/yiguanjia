@@ -1,42 +1,43 @@
 <template>
 	<div class="z-content">
 		<div class="address-edit-wrap">
-			<x-input 
-				title="姓名" 
+			<x-input
+				title="姓名"
 				:show-clear="true"
 				is-type="china-name"
 				:value="ad.name"
 				required
-				@on-change="changeName" 
-				placeholder="姓名">
+				@on-change="changeName"
+				placeholder="收货人">
 			</x-input>
-			<x-input 
-				title="电话" 
+			<x-input
+				title="电话"
 				:show-clear="true"
 				is-type="china-mobile"
 				keyboard="number"
 				type="tel"
 				:value="ad.tel"
 				required
-				@on-change="changeTel" 
-				placeholder="手机号码">
+				@on-change="changeTel"
+				placeholder="手机号">
 			</x-input>
-			<x-address 
-				:title="'地区'" 
-				v-model="value" 
-				:list="addressData" 
-				placeholder="请选择地址">
+			<x-address
+				:raw-value="true"
+				:title="'地区'"
+				v-model="value"
+				:list="addressData"
+				placeholder="所在地区">
 			</x-address>
-			<x-textarea 
-				:max="50" 
+			<x-textarea
+				:max="50"
 				:height="100"
 				:value="ad.address"
-				@on-change="changeAddress" 
+				@on-change="changeAddress"
 				:show-counter="false"
-				placeholder="请填写详细地址">
+				placeholder="详细地址">
 			</x-textarea>
 		</div>
-		<div 
+		<div
 			class="address-edit-btn"
 			@click="submitHandle">保存</div>
 	</div>
@@ -56,7 +57,7 @@ export default {
 			ad: {},
 			value: [],
 			addressData: ChinaAddressData,
-			
+
 		}
 	},
 	computed: {
@@ -72,8 +73,8 @@ export default {
 				this.$store.dispatch({
 					type: 'changeHasSave'
 				})
-				this.$router 
-					? this.$router.back() 
+				this.$router
+					? this.$router.back()
 					: window.history.back()
 			}
 		}
@@ -100,14 +101,17 @@ export default {
 		  	this.ad.address = val
 		},
 		submitHandle(){
-			console.log(this.value)
+			console.log(this.ad)
 			this.$store.dispatch({
 				type: 'editAddress',
 				address: {
 					name: this.ad.name,
-					tel: this.ad.tel,
+					mobile: this.ad.tel,
 					address: this.ad.address,
-					cityCode: this.value
+					// cityCode: this.value,
+					province: this.value[0],
+					city: this.value[1],
+					cityArea: this.value[2],
 				}
 			})
 		}
