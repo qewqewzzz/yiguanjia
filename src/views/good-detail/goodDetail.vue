@@ -44,7 +44,7 @@
 			class="a"
 			:aspect-ratio="1/1"
 			dots-position="center">
-			<swiper-item
+			<swiper-item height="200px"
 				v-for="item in good.details">
 				<img :src="item">
 			</swiper-item>
@@ -60,8 +60,8 @@
 			</div>-->
             <div class="m-center">￥<span class="m-price">{{good.price}}</span></div>
             <div class="m-center"><span class="m-tag">{{good.isTop && '爆款'}}</span></div>
-            <div class="m-center"><del class="m-price-del">￥{{good.markPrice}}</del></div>
-            <div class="title z-ellipsis-2">{{good.title}}</div>
+            <div class="m-center"><del class="m-price-del">￥{{good.marketPrice}}</del></div>
+            <div class="title z-ellipsis-2 m-center">{{good.title}}</div>
             <div class="m-center"><img class="m-share" src="/static/img/mshare.png" alt=""></div>
 		</div>
 
@@ -118,19 +118,19 @@
 		<div class="good-detail-comment">
 			<div class="head">
 				评价
-				<span class="comment-num">({{good.assess && good.assess.length}}人评价)</span>
+				<!-- <span class="comment-num">({{good.assess && good.assess.length}}人评价)</span> -->
 				<router-link
 					class="comment-all"
 					:to="{
 						name: 'commentList',
-						params: {id: good.id}
+						params: {id: this.$route.params.id}
 					}">
-					查看全部
+					<span style="color: #EDA849;">查看全部>></span>
 				</router-link>
 			</div>
 			<comment-card
 				:type="'part'"
-				v-for="item in good.assess"
+				v-for="item in [{assess: good.assess, assessDate: good.assessDate, avatar: good.avatar, nickName: good.nickName}]"
 				:comment="item">
 			</comment-card>
 		</div>

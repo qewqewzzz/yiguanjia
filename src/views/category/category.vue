@@ -14,7 +14,7 @@
                 class="menu-item"
                 :class="[currentIndex == index?'active':'']"
                 @click="switchCategory(index,item.categoryId)">
-                {{item.name}}
+                {{item.title}}
             </li>
         </ul>
         <div class="category-main">
@@ -30,7 +30,7 @@
                          v-for="(item,index) in categoryList"
                          @click="linktoDetail(item.productId)"
                          :key="index">
-                        <img :src="item['main_img_url']"
+                        <img :src="item['imgUrl']"
                              alt=""
                              class="goods-image">
                         <div class="goods-name">{{item.name}}</div>
@@ -215,7 +215,7 @@ export default {
                     }
                     .goods-image {
                         width: 80%;
-                        border-radius: 50%;
+                        margin: 0 auto;
                     }
                     .goods-name {
                         color: #444452;

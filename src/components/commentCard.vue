@@ -2,12 +2,12 @@
 	<div class="comment-card-wrap"
 		:class="cardStyle">
 		<div class="head">
-			<img :src="comment.userLogo" alt="">
-			<span>{{comment.userName}}</span>
-			<span class="right-tip">{{comment.createdAt}}</span>
+			<img :src="comment.avatar" alt="">
+			<span>{{comment.nickName}}</span>
+			<!-- <span class="right-tip">{{comment.assessDate}}</span> -->
 		</div>
 		<div class="body">
-			<div
+			<!-- <div
 				class="comment-score"
 				>
 				商品描述:
@@ -21,8 +21,8 @@
 					:fontSize="18"
 					disabled>
 				</rater>
-			</div>
-			<div class="comment-text">{{comment.content}}</div>
+			</div> -->
+			<div class="comment-text">{{comment.assess}}</div>
 		</div>
 	</div>
 </template>

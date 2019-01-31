@@ -230,7 +230,7 @@ export function getCatagroyList(params = {}){
 	//         resolve(data.categoryList);
 	//     }, 1000)
 	// })
-	return request.get(baseUrl + '/catagroy/list',{
+	return request.get(baseUrl + '/category/list',{
 	    params: {
 	      ...params
 	    }

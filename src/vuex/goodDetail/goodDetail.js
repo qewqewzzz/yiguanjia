@@ -36,8 +36,8 @@ const actions = {
 		dispatch('hideLoading')
 		commit({
 			type: types.GET_GOODDETAIL,
-			// good: good.data.data,
-			good: good,
+			good: good.data.data,
+			// good: good,
 		})
 	}
 }
