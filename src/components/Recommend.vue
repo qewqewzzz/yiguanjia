@@ -1,7 +1,7 @@
 <template>
 	<div v-if="type === 'INDEXGOODRECOMMEND'">
 		<div class="index-goodRecommend-head">
-			{{recommendTitle}}
+			<span style="margin-right: 15px; color: #EFEFEF;">——</span>{{recommendTitle}}<span style="margin-left: 15px; color: #EFEFEF;">——</span>
 		</div>
 		<good-grid :data="recommendData"></good-grid>
 	</div>
@@ -24,7 +24,7 @@
 
     <div v-else-if="type === 'INDEXARTICLERECOMMEND'">
         <div class="index-goodRecommend-head">
-            {{recommendTitle}}
+            <span style="margin-right: 15px; color: #EFEFEF;">——</span>{{recommendTitle}}<span style="margin-left: 15px; color: #EFEFEF;">——</span>
         </div>
         <article-card :articleList="recommendData" :isFooter="true"></article-card>
     </div>

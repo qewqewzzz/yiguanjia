@@ -4,7 +4,7 @@
 			<router-link
 				:to="{
 					name: 'goodDetail',
-					params: {id: item.id}
+					params: {id: item.productId}
 				}">
 				<img :src="item.imgUrl"/>
 				<div class="info">

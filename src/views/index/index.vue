@@ -23,7 +23,7 @@
 
 		<view-box class="z-content">
 			<div class="life-index-banner life-pr">
-				<swiper
+				<swiper height="800px"
 					:list="shopBanner">
 				</swiper>
 				<!-- <img src="/static/img/article-more.jpg" class="" alt=""> -->
@@ -33,7 +33,7 @@
 				    	<!-- <span style="vertical-align: middle;">精彩资讯 西湖店盛大开,新老用户享七折</span> -->
 				    	<div style="display:inline-block;">
 						    <marquee direction="up" :interval="2000">
-						      	<marquee-item v-for="(item, index) in shopMessage" :key="index" @click.native="" class="align-middle">
+						      	<marquee-item v-for="(item, index) in shopMessage" :key="index" @click.native="linkArticleDetail(item.id)" class="align-middle">
 						      		<img class="m-bugle" style="display:inline-block;margin-right:5px;" src="/static/img/bugle.png">
 						      		<span style="vertical-align: middle;">{{item.title}}</span>
 						      	</marquee-item>
@@ -88,7 +88,7 @@
 
 			<recommend
 				:type="'INDEXGOODRECOMMEND'"
-				:recommendTitle="'——热品推荐——'"
+				:recommendTitle="'热品推荐'"
 				:recommendData="recommendGoods">
 			</recommend>
 
@@ -172,6 +172,13 @@ export default {
 	methods: {
 		initShop() {
 			this.$store.dispatch('initShop')
+		},
+		linkArticleDetail (id) {
+			this.$router.push({
+				name: 'articleDetail',
+				params: {id: id,newsId: id}
+
+			})
 		}
 	}
 }
